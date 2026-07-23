@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toreno79|Experience</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand">:> Toreno_</a>
+            <button class="nav-toggle" onclick="document.querySelector('.navbar-links').classList.toggle('open')"
+                aria-label="Toggle navigation">☰</button>
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="education.html">Education</a>
+                <a href="certifications.html">Certifications</a>
+                <a href="experience.html" class="active">Experience</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="main-wrapper">
+
+        <div class="page-header">
+            <h1>Experience</h1>
+            <p>Professional journey in cybersecurity and software development.</p>
+        </div>
+        <hr class="section-divider">
+
+        <div class="timeline">
+
+            <!-- Entry 1 -->
+            <div class="timeline-item">
+                <span class="timeline-date">April 2025 — May 2025</span>
+                <div class="timeline-title">Python Programmer - CodSoft (Remote)</div>
+                <p>Completed an intensive Python programming internship focused on developing real-world applications,
+                    enhancing technical proficiency in OOP, data handling, and problem-solving. Delivered 5+ scalable
+                    solutions including task management systems and interactive tools, demonstrating strong coding
+                    practices and commitment to software development excellence.</p>
+                <ul>
+                    <li>Developed 5+ Python applications including a To-Do List with CRUD operations, a Secure Password
+                        Generator, and a Contact Book with JSON data persistence.</li>
+                    <li>Implemented OOP principles and modular coding practices to create scalable solutions with error
+                        handling and user input validation.</li>
+                    <li>Built a CLI-based Calculator supporting arithmetic operations and a Rock-Paper-Scissors game
+                        with score tracking for enhanced user interaction.</li>
+                    <li>Managed version control via GitHub, maintaining a structured repository for all projects with
+                        detailed documentation.</li>
+                </ul>
+                <div class="card-tech">
+                    <span>Python</span>
+                    <span>Problem Solving</span>
+                    <span>GitHub</span>
+                    <span>OOP</span>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <p class="separator">[ ================================================ ]</p>
+            <p>&copy; 2026 Toreno79 | Fuad Hasan</p>
+        </footer>
+
+        <script>
+            document.querySelectorAll('.navbar-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.querySelector('.navbar-links').classList.remove('open');
+                });
+            });
+        </script>
+</body>
+
+</html>

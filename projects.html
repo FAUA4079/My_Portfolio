@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toreno79 | Fuad Hasan — Projects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand">:> Toreno_</a>
+            <button class="nav-toggle" onclick="document.querySelector('.navbar-links').classList.toggle('open')"
+                aria-label="Toggle navigation">☰</button>
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" >About</a>
+                <a href="education.html">Education</a>
+                <a href="certifications.html">Certifications</a>                
+                <a href="experience.html">Experience</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="main-wrapper">
+
+        <div class="page-header">
+            <h1>Projects</h1>
+            <p>Open-source tools and applications I've built or contributed to.</p>
+        </div>
+        <hr class="section-divider">
+
+        <div class="card-grid">
+
+            <!-- LogRisk Analyzer -->
+            <div class="card animate-fade-up delay-1">
+                <h3>LogRisk Analyzer</h3>
+                <p>A command-line Security GRC tool that automates log scanning and risk assessment across Linux and
+                    Windows systems. It leverages customizable JSON rules to detect security threats and operational
+                    anomalies, instantly assigning severity levels and actionable mitigation strategies.</p>
+                <div class="card-tech">
+                    <span>Python</span>
+                    <span>Log</span>
+                    <span>Report</span>
+                    <span>GRC</span>
+                    <span>JSON</span>
+                </div>
+                <a href="https://github.com/FAUA4079/LogRisk" target="_blank" rel="noopener" class="card-link">
+                    View on GitHub →
+                </a>
+            </div>
+
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p class="separator">[ ================================================ ]</p>
+        <p>&copy; 2026 Toreno79 | Fuad Hasan</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.navbar-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.navbar-links').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+
+</html>
