@@ -13,16 +13,17 @@
     <!-- ========== NAVIGATION ========== -->
     <nav class="navbar">
         <div class="navbar-inner">
-            <a href="index.html" class="navbar-brand">:> Toreno_</a>
+            <a href="index.html" class="navbar-brand">:> Toreno79_</a>
             <button class="nav-toggle" onclick="document.querySelector('.navbar-links').classList.toggle('open')"
                 aria-label="Toggle navigation">☰</button>
             <div class="navbar-links">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="education.html">Education</a>
-                <a href="certifications.html">Certifications</a>
+                <a href="achievements.html">Achievements</a>
                 <a href="experience.html" class="active">Experience</a>
                 <a href="projects.html">Projects</a>
+                <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
         </div>
@@ -68,19 +69,20 @@
 
         </div>
 
-        <!-- ===== FOOTER ===== -->
-        <footer class="footer">
-            <p class="separator">[ ================================================ ]</p>
-            <p>&copy; 2026 Toreno79 | Fuad Hasan</p>
-        </footer>
+    </div>
 
-        <script>
-            document.querySelectorAll('.navbar-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    document.querySelector('.navbar-links').classList.remove('open');
-                });
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p>&copy; 2026 Toreno79</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.navbar-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.navbar-links').classList.remove('open');
             });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
