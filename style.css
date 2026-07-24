@@ -4,6 +4,9 @@
     Dark + Neon Green (#9fef00) | Professional & Polished
     ============================================================ */
 
+/* --- Import Google Font (Fira Code) --- */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
 /* --- CSS Variables (Easy Theming) --- */
 :root {
     --bg: #0a0a0a;
@@ -27,9 +30,6 @@
     --radius: 4px;
     --max-width: 1100px;
 }
-
-/* --- Import Google Font (Fira Code) --- */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
 /* --- Global Reset --- */
 *, *::before, *::after {
@@ -325,6 +325,7 @@ body::before {
     margin: 0 auto;
     padding-left: 24px;
     padding-right: 24px;
+    padding-top: 72px;
     position: relative;
     z-index: 1;
 }
@@ -527,7 +528,7 @@ a:hover {
     animation-fill-mode: forwards;
 }
 
-/* Glitch text effect - always visible subtle glitch, intensifies on hover */
+/* Glitch text effect */
 .glitch {
     position: relative;
     display: inline-block;
@@ -568,7 +569,7 @@ a:hover {
     animation: glitch-shift 0.1s infinite linear alternate-reverse;
 }
 
-/* ASCII Art decorative - enhanced */
+/* ASCII Art decorative */
 .ascii-art {
     color: var(--green-dim);
     font-size: 0.65rem;
@@ -695,17 +696,14 @@ a:hover {
     gap: 10px;
 }
 
-/* Card with green left border accent */
 .card-accent {
     border-left: 3px solid var(--green-dim);
-    border-left-color: var(--green-dim);
 }
 
 .card-accent:hover {
     border-left-color: var(--green);
 }
 
-/* Card tech/tag badges inside cards */
 .card-tech {
     display: flex;
     flex-wrap: wrap;
@@ -727,7 +725,7 @@ a:hover {
 }
 
 /* ======================================
-   TIMELINE (Experience) - Enhanced
+   TIMELINE (Experience)
    ====================================== */
 .timeline {
     position: relative;
@@ -836,7 +834,7 @@ a:hover {
 }
 
 /* ======================================
-   SKILL TAGS (About)
+   SKILL TAGS
    ====================================== */
 .skill-tags {
     display: flex;
@@ -907,7 +905,7 @@ a:hover {
 }
 
 /* ======================================
-   CERTIFICATION LIST (Vertical)
+   CERTIFICATIONS
    ====================================== */
 .cert-list {
     display: flex;
@@ -941,9 +939,6 @@ a:hover {
     letter-spacing: 0.3px;
 }
 
-/* ======================================
-   CERTIFICATION CARD
-   ====================================== */
 .cert-card .cert-org,
 .cert-card .cert-link {
     display: block;
@@ -978,8 +973,16 @@ a:hover {
     border-bottom-color: var(--green);
 }
 
+/* Cert Footer - push Verify Credential link to the right */
+.cert-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
 /* ======================================
-   STATS / COUNTER SECTION (Home)
+   STATS / COUNTER SECTION
    ====================================== */
 .stats-grid {
     display: grid;
@@ -1021,7 +1024,7 @@ a:hover {
 }
 
 /* ======================================
-   FORM STYLES (Contact) - Enhanced
+   FORMS & CONTACT
    ====================================== */
 .contact-form {
     max-width: 640px;
@@ -1075,7 +1078,7 @@ a:hover {
 }
 
 /* ======================================
-   SOCIAL LINKS (Contact)
+   SOCIAL LINKS
    ====================================== */
 .social-links {
     display: flex;
@@ -1138,7 +1141,7 @@ a:hover {
 }
 
 /* ======================================
-   FOOTER - Enhanced
+   FOOTER
    ====================================== */
 .footer {
     text-align: center;
@@ -1180,7 +1183,7 @@ a:hover {
 }
 
 /* ======================================
-   SECTION DIVIDER
+   SECTION DIVIDER & PAGE HEADER
    ====================================== */
 .section-divider {
     border: none;
@@ -1189,9 +1192,6 @@ a:hover {
     margin: 32px 0;
 }
 
-/* ======================================
-   PAGE HEADER
-   ====================================== */
 .page-header {
     margin-bottom: 32px;
 }
@@ -1204,6 +1204,667 @@ a:hover {
     color: var(--text-dim);
     font-size: 0.95rem;
     margin: 0;
+}
+
+/* ======================================
+   BLOG PAGE STYLES
+   ====================================== */
+.blog-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.blog-row {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-card);
+}
+
+.blog-row:hover {
+    border-color: var(--green-dim);
+    background: var(--bg-card-hover);
+    box-shadow: var(--shadow-card-hover), 0 0 20px rgba(159, 239, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.blog-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.blog-title {
+    color: var(--text-bright);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.blog-tag-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border: 1px solid var(--green-dim);
+    color: var(--green);
+    background: rgba(159, 239, 0, 0.04);
+    border-radius: 2px;
+    letter-spacing: 0.3px;
+}
+
+/* Filter Bar & Modals */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.filter-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    transition: all var(--transition);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(159, 239, 0, 0.08);
+    box-shadow: 0 0 10px var(--green-glow);
+}
+
+.sort-toggle {
+    margin-left: auto;
+}
+
+.sort-toggle .filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+    padding: 20px;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--green-dim);
+    border-radius: var(--radius);
+    padding: 32px;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--green-glow);
+    transform: scale(0.95);
+    transition: transform var(--transition);
+    position: relative;
+}
+
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+
+.modal-title {
+    color: var(--green);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.modal-details {
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+}
+
+.modal-close {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: var(--radius);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    transition: all var(--transition);
+}
+
+.modal-close:hover {
+    border-color: var(--text);
+    color: var(--text-bright);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.page-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--green);
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    transition: all var(--transition);
+}
+
+.page-btn:hover:not(:disabled) {
+    border-color: var(--green);
+    background: rgba(159, 239, 0, 0.1);
+    box-shadow: 0 0 15px var(--green-glow);
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    color: var(--text-dim);
+}
+
+.page-indicator {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+/* ======================================
+   ACHIEVEMENTS PAGE — CTF & SEMINAR STYLES
+   ====================================== */
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.section-heading h2::before {
+    content: '# ';
+    color: var(--green-dim);
+    font-weight: 300;
+}
+
+.section-badge {
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border: 1px solid var(--green-dim);
+    color: var(--green);
+    background: rgba(159, 239, 0, 0.04);
+    border-radius: 2px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.ctf-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green-dim);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition);
+}
+
+.ctf-block:hover {
+    border-color: var(--border-light);
+    border-left-color: var(--green);
+    background: var(--bg-card-hover);
+    box-shadow: var(--shadow-card-hover), 0 0 25px rgba(159, 239, 0, 0.04);
+    transform: translateY(-3px);
+}
+
+.ctf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.ctf-header h3 {
+    margin-bottom: 0;
+    color: var(--green);
+    flex: 1;
+}
+
+.ctf-date {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(159, 239, 0, 0.03);
+    font-family: 'Fira Code', var(--font);
+    letter-spacing: 0.3px;
+}
+
+.ctf-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ctf-detail-item {
+    font-size: 0.88rem;
+    color: var(--text);
+}
+
+.ctf-detail-item strong {
+    color: var(--text-bright);
+    font-weight: 600;
+}
+
+.ctf-row {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-card);
+}
+
+.ctf-row:hover {
+    border-color: var(--green-dim);
+    background: var(--bg-card-hover);
+    box-shadow: var(--shadow-card-hover), 0 0 20px rgba(159, 239, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.ctf-row-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.ctf-row-title {
+    color: var(--text-bright);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.ctf-row-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+}
+
+.ctf-row-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ctf-modal-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: rgba(159, 239, 0, 0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.88rem;
+    color: var(--text);
+}
+
+.ctf-modal-summary span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ctf-modal-summary strong {
+    color: var(--text-bright);
+}
+
+.ctf-score-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 0.85rem;
+}
+
+.ctf-score-table thead th {
+    color: var(--green);
+    background: rgba(159, 239, 0, 0.06);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.ctf-score-table tbody td {
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+}
+
+.ctf-score-table tbody tr:hover td {
+    background: rgba(159, 239, 0, 0.03);
+}
+
+.ctf-score-table tbody td:first-child {
+    color: var(--text-bright);
+    font-weight: 500;
+}
+
+.ctf-score-table tbody td:last-child {
+    color: var(--green);
+    font-weight: 600;
+}
+
+/* Seminar card styles (legacy - use ctf-block instead) */
+
+/* ======================================
+   ACHIEVEMENTS — TAB SYSTEM & MORE DETAILS
+   ====================================== */
+
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    color: var(--text-dim);
+    font-family: 'Fira Code', var(--font);
+    font-size: 0.88rem;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all var(--transition);
+    border-radius: var(--radius) var(--radius) 0 0;
+    position: relative;
+    bottom: -1px;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+}
+
+.tab-btn:hover {
+    color: var(--text-bright);
+    background: rgba(159, 239, 0, 0.03);
+    border-color: var(--border-light);
+}
+
+.tab-btn.active {
+    color: var(--green);
+    background: rgba(159, 239, 0, 0.06);
+    border-color: var(--green-dim) var(--green-dim) var(--bg);
+    box-shadow: 0 -2px 10px var(--green-glow);
+    text-shadow: 0 0 8px var(--green-glow);
+}
+
+.tab-btn .tab-icon {
+    margin-right: 6px;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Seminar Info Styles (inside ctf-block) */
+.seminar-info {
+    flex: 1;
+}
+
+.seminar-info h3 {
+    margin-bottom: 4px;
+    color: var(--green);
+    flex: 1;
+}
+
+.seminar-org {
+    font-size: 0.88rem;
+    color: var(--text);
+    display: block;
+}
+
+.seminar-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.seminar-cert-link {
+    font-size: 0.88rem;
+    position: relative;
+    z-index: 1;
+}
+
+.seminar-cert-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px dashed var(--green-dim);
+    font-weight: 500;
+    color: var(--green);
+    text-decoration: none;
+    transition: all var(--transition);
+    font-size: 0.88rem;
+}
+
+.seminar-cert-link a:hover {
+    gap: 10px;
+    border-bottom-color: var(--green);
+    text-shadow: 0 0 10px var(--green-glow);
+    color: #b4ff3a;
+}
+
+/* More Details Link for CTFs (styled like cert Verify Credential) */
+.ctf-more-link {
+    font-size: 0.88rem;
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.ctf-more-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px dashed var(--green-dim);
+    font-weight: 500;
+    color: var(--green);
+    text-decoration: none;
+    transition: all var(--transition);
+    font-size: 0.88rem;
+}
+
+.ctf-more-link a:hover {
+    gap: 10px;
+    border-bottom-color: var(--green);
+    text-shadow: 0 0 10px var(--green-glow);
+    color: #b4ff3a;
+}
+
+/* CTF Modal Overrides */
+.ctf-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+    padding: 20px;
+}
+
+.ctf-modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.ctf-modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--green-dim);
+    border-radius: var(--radius);
+    padding: 32px;
+    width: 100%;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--green-glow);
+    transform: scale(0.95);
+    transition: transform var(--transition);
+    position: relative;
+}
+
+.ctf-modal-overlay.open .ctf-modal-content {
+    transform: scale(1);
+}
+
+.ctf-modal-title {
+    color: var(--green);
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.ctf-modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    font-family: 'Fira Code', var(--font);
+}
+
+.ctf-modal-close-btn:hover {
+    border-color: var(--green);
+    color: var(--green);
+    box-shadow: 0 0 10px var(--green-glow);
+}
+
+/* Modal Scrollbar */
+.ctf-modal-content::-webkit-scrollbar { width: 4px; }
+.ctf-modal-content::-webkit-scrollbar-track { background: transparent; }
+.ctf-modal-content::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 2px; }
+
+/* Responsive Tab & CTF Fixes */
+@media (max-width: 768px) {
+    .tab-btn {
+        font-size: 0.8rem;
+        padding: 10px 16px;
+        flex: 1;
+        text-align: center;
+    }
+    .ctf-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .ctf-details {
+        grid-template-columns: 1fr 1fr;
+    }
+    .ctf-modal-content {
+        padding: 20px;
+        max-width: 100%;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tab-btn {
+        font-size: 0.75rem;
+        padding: 8px 10px;
+    }
+    .ctf-details {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ======================================
