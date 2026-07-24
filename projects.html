@@ -26,6 +26,7 @@
                 <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
+        </div>
     </nav>
 
     <!-- ========== MAIN CONTENT ========== -->
@@ -37,26 +38,102 @@
         </div>
         <hr class="section-divider">
 
-        <div class="card-grid">
+        <!-- ===== TAB NAVIGATION ===== -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('all', this)">
+                <span class="tab-icon">📦</span> All
+            </button>
+            <button class="tab-btn" onclick="switchTab('defensive', this)">
+                <span class="tab-icon">🔒</span> Defensive
+            </button>
+            <button class="tab-btn" onclick="switchTab('offensive', this)">
+                <span class="tab-icon">🛠</span> Offensive
+            </button>
+        </div>
 
-            <!-- LogRisk Analyzer -->
-            <div class="card animate-fade-up delay-1">
-                <h3>LogRisk Analyzer</h3>
-                <p>A command-line Security GRC tool that automates log scanning and risk assessment across Linux and
-                    Windows systems. It leverages customizable JSON rules to detect security threats and operational
-                    anomalies, instantly assigning severity levels and actionable mitigation strategies.</p>
-                <div class="card-tech">
-                    <span>Python</span>
-                    <span>Log</span>
-                    <span>Report</span>
-                    <span>GRC</span>
-                    <span>JSON</span>
+        <!-- ============================================================ -->
+        <!-- TAB 1: ALL PROJECTS                                          -->
+        <!-- ============================================================ -->
+        <div id="tab-all" class="tab-content active">
+
+            <div class="card-grid">
+
+                <!-- LogRisk Analyzer -->
+                <div class="card animate-fade-up delay-1">
+                    <h3>LogRisk Analyzer</h3>
+                    <p>A command-line Security GRC tool that automates log scanning and risk assessment across Linux and
+                        Windows systems. It leverages customizable JSON rules to detect security threats and operational
+                        anomalies, instantly assigning severity levels and actionable mitigation strategies.</p>
+                    <div class="card-tech">
+                        <span>Python</span>
+                        <span>Log</span>
+                        <span>Report</span>
+                        <span>GRC</span>
+                        <span>JSON</span>
+                    </div>
+                    <button class="btn" onclick="openProjectModal(1)" style="margin-top: 12px;">▶ Details</button>
                 </div>
-                <a href="https://github.com/FAUA4079/LogRisk" target="_blank" rel="noopener" class="card-link">
-                    View on GitHub →
-                </a>
+
             </div>
 
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 2: DEFENSIVE                                            -->
+        <!-- ============================================================ -->
+        <div id="tab-defensive" class="tab-content">
+
+            <div class="card-grid">
+
+                <!-- LogRisk Analyzer (Defensive Tab) -->
+                <div class="card animate-fade-up delay-1">
+                    <h3>LogRisk Analyzer</h3>
+                    <p>A command-line Security GRC tool that automates log scanning and risk assessment across Linux and
+                        Windows systems. It leverages customizable JSON rules to detect security threats and operational
+                        anomalies, instantly assigning severity levels and actionable mitigation strategies.</p>
+                    <div class="card-tech">
+                        <span>Python</span>
+                        <span>Log</span>
+                        <span>Report</span>
+                        <span>GRC</span>
+                        <span>JSON</span>
+                    </div>
+                    <button class="btn" onclick="openProjectModal(1)" style="margin-top: 12px;">▶ Details</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 3: OFFENSIVE                                            -->
+        <!-- ============================================================ -->
+        <div id="tab-offensive" class="tab-content">
+
+            <div class="card-grid">
+
+                <!-- No Offensive Projects -->
+                <div class="card animate-fade-up delay-1">
+                    <h3>No Offensive Projects Yet</h3>
+                    <p>Currently, there are no offensive security projects available. Stay tuned for future updates!</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== PROJECT MODAL ===== -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <h3 class="modal-title" id="projectModalTitle">Project Title</h3>
+            <div class="modal-details" id="projectModalDetails">Detailed information about the project goes here...</div>
+            <div class="card-tech" id="projectModalTech" style="margin-bottom: 16px;"></div>
+            <div class="modal-actions">
+                <button class="modal-close" onclick="closeProjectModal()">Close</button>
+                <a href="#" id="projectModalLink" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+        </div>
     </div>
 
     <!-- ===== FOOTER ===== -->
@@ -65,11 +142,138 @@
     </footer>
 
     <script>
+        // ===== PROJECTS DATA =====
+        const projects = [
+            {
+                id: 1,
+                title: "LogRisk Analyzer",
+                category: "security",
+                details: "A command-line Security GRC tool that automates log scanning and risk assessment across Linux and Windows systems. It leverages customizable JSON rules to detect security threats and operational anomalies, instantly assigning severity levels and actionable mitigation strategies. Built with Python, it supports real-time log parsing, customizable rule engines, and comprehensive report generation for compliance auditing.",
+                tech: ["Python", "Log", "Report", "GRC", "JSON"],
+                link: "https://github.com/FAUA4079/LogRisk"
+            }
+        ];
+
+        // ===== URL HELPERS =====
+        function setHash(value) {
+            if (value) {
+                history.pushState(null, '', '#' + value);
+            } else {
+                // Restore tab hash
+                const activeTab = document.querySelector('.tab-btn.active');
+                if (activeTab) {
+                    const tabMatch = activeTab.getAttribute('onclick').match(/'([^']+)'/);
+                    if (tabMatch) {
+                        history.pushState(null, '', '#' + tabMatch[1]);
+                        return;
+                    }
+                }
+                history.pushState(null, '', window.location.pathname);
+            }
+        }
+
+        // ===== TAB SWITCHING =====
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            btnElement.classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            // Update URL hash
+            setHash(tabId);
+        }
+
+        // Initialize tab from URL hash
+        function initFromUrl() {
+            const hash = window.location.hash.slice(1);
+            if (hash) {
+                // Check if hash matches a project modal
+                if (hash.startsWith('project-')) {
+                    const projectId = parseInt(hash.split('-')[1]);
+                    const project = projects.find(p => p.id === projectId);
+                    if (project) {
+                        setTimeout(() => openProjectModal(projectId), 100);
+                        return;
+                    }
+                }
+                // Check if hash matches a tab
+                const tabBtn = document.querySelector(`.tab-btn[onclick*="'${hash}'"]`);
+                if (tabBtn) {
+                    switchTab(hash, tabBtn);
+                    return;
+                }
+            }
+        }
+
+        // ===== PROJECT MODAL =====
+        function openProjectModal(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+
+            document.getElementById('projectModalTitle').innerText = project.title;
+            document.getElementById('projectModalDetails').innerText = project.details;
+            document.getElementById('projectModalLink').href = project.link;
+
+            const techContainer = document.getElementById('projectModalTech');
+            techContainer.innerHTML = project.tech.map(t => `<span>${t}</span>`).join('');
+
+            document.getElementById('projectModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+
+            // Set URL hash
+            setHash('project-' + id);
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+
+            // Restore tab hash in URL
+            const activeTab = document.querySelector('.tab-btn.active');
+            if (activeTab) {
+                const tabMatch = activeTab.getAttribute('onclick').match(/'([^']+)'/);
+                if (tabMatch) setHash(tabMatch[1]);
+                else setHash(null);
+            } else {
+                setHash(null);
+            }
+        }
+
+        // Close modal on background click
+        document.getElementById('projectModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('projectModal')) {
+                closeProjectModal();
+            }
+        });
+
+        // Close modal with Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('projectModal').classList.contains('open')) {
+                closeProjectModal();
+            }
+        });
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', function() {
+            // Close any open modal
+            if (document.getElementById('projectModal').classList.contains('open')) {
+                document.getElementById('projectModal').classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+            // Re-init from URL
+            initFromUrl();
+        });
+
+        // Close mobile nav when a link is clicked
         document.querySelectorAll('.navbar-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.navbar-links').classList.remove('open');
             });
         });
+
+        // Initialize from URL
+        initFromUrl();
     </script>
 </body>
 
