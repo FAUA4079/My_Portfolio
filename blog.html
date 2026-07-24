@@ -117,6 +117,66 @@
         let currentTag = 'all';
         let sortAscending = false; // Default: Newest First (descending)
 
+        // ===== URL HELPERS =====
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function getHashParam() {
+            const hash = window.location.hash.slice(1);
+            if (hash.startsWith('post-')) return parseInt(hash.split('-')[1]);
+            return null;
+        }
+
+        function setQueryParams() {
+            const params = new URLSearchParams();
+            if (currentTag !== 'all') params.set('tag', currentTag);
+            if (currentPage > 1) params.set('page', currentPage);
+            if (sortAscending) params.set('sort', 'asc');
+            const qs = params.toString();
+            const newUrl = qs ? window.location.pathname + '?' + qs : window.location.pathname;
+            history.pushState(null, '', newUrl);
+        }
+
+        function setHash(value) {
+            if (value) {
+                // Preserve query params when setting hash
+                const qs = window.location.search;
+                history.pushState(null, '', qs ? window.location.pathname + qs + '#' + value : window.location.pathname + '#' + value);
+            } else {
+                // Clear hash, preserve query params
+                const qs = window.location.search;
+                history.pushState(null, '', qs ? window.location.pathname + qs : window.location.pathname);
+            }
+        }
+
+        // ===== INIT STATE FROM URL =====
+        function initFromUrl() {
+            const tagParam = getQueryParam('tag');
+            if (tagParam) {
+                currentTag = tagParam;
+                // Activate the corresponding filter button
+                document.querySelectorAll('.filter-bar .filter-btn:not(#sortToggle)').forEach(b => {
+                    b.classList.toggle('active', b.getAttribute('data-tag') === tagParam);
+                });
+            }
+
+            const pageParam = getQueryParam('page');
+            if (pageParam) currentPage = parseInt(pageParam) || 1;
+
+            const sortParam = getQueryParam('sort');
+            if (sortParam === 'asc') {
+                sortAscending = true;
+                document.getElementById('sortToggle').textContent = '↑ Oldest First';
+            }
+
+            const postId = getHashParam();
+            if (postId) {
+                setTimeout(() => openModal(postId), 100);
+            }
+        }
+
         // Filter blogs based on tag
         function getFilteredBlogs() {
             let filtered;
@@ -141,6 +201,7 @@
             btn.textContent = sortAscending ? '↑ Oldest First' : '↓ Newest First';
             currentPage = 1;
             renderBlogs();
+            setQueryParams();
         }
 
         // Render blogs for current page
@@ -182,6 +243,9 @@
             document.getElementById('pageIndicator').innerText = `Page ${currentPage} of ${totalPages}`;
             document.getElementById('prevBtn').disabled = currentPage === 1;
             document.getElementById('nextBtn').disabled = currentPage === totalPages || totalPages === 0;
+
+            // Update URL query params
+            setQueryParams();
         }
 
         // Pagination control
@@ -213,11 +277,16 @@
 
             document.getElementById('blogModal').classList.add('open');
             document.body.style.overflow = 'hidden';
+
+            // Set URL hash
+            setHash('post-' + id);
         }
 
         function closeModal() {
             document.getElementById('blogModal').classList.remove('open');
             document.body.style.overflow = 'auto';
+            // Clear hash (restore query params)
+            setHash(null);
         }
 
         // Close modal on background click
@@ -227,6 +296,25 @@
             }
         });
 
+        // Close modal with Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('blogModal').classList.contains('open')) {
+                closeModal();
+            }
+        });
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', function() {
+            // Close modal if open
+            if (document.getElementById('blogModal').classList.contains('open')) {
+                document.getElementById('blogModal').classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+            // Re-init from URL
+            initFromUrl();
+            renderBlogs();
+        });
+
         // Close mobile nav when a link is clicked
         document.querySelectorAll('.navbar-links a').forEach(link => {
             link.addEventListener('click', () => {
@@ -234,7 +322,8 @@
             });
         });
 
-        // Initial render
+        // Initial render with URL params
+        initFromUrl();
         renderBlogs();
     </script>
 </body>
