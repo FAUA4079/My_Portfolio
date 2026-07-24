@@ -33,7 +33,7 @@
     <div class="main-wrapper">
 
         <header class="page-header">
-            <h1>Writeups</h1>
+            <h1>Security & Code Writeups</h1>
             <p>Chronological logs of pentest findings, CTF walkthroughs, and programming insights.</p>
         </header>
 
@@ -68,11 +68,16 @@
     <div class="modal-overlay" id="blogModal">
         <div class="modal-content">
             <h3 class="modal-title" id="modalTitle">Blog Title</h3>
-            <div class="modal-details" id="modalDetails">Detailed breakdown and insights of the blog post go here...
+            <div class="modal-details" id="modalDetails">
+                <p id="modalDescription">Detailed breakdown and insights of the blog post go here...</p>
+                <div id="modalTopicsContainer" style="margin-top: 16px;">
+                    <span class="modal-section-label" style="display: block; color: var(--green); font-weight: 600; font-size: 0.88rem; margin-bottom: 8px; letter-spacing: 0.3px;">Topics Covered</span>
+                    <div id="modalTopicsList"></div>
+                </div>
             </div>
-            <div class="modal-actions">
+<div class="modal-actions-block">
                 <button class="modal-close" onclick="closeModal()">Close</button>
-                <a href="#" id="modalLink" class="btn" target="_blank" rel="noopener noreferrer">Read Full Article</a>
+                <a href="#" id="modalLink" class="btn" target="_blank" rel="noopener noreferrer">Read Full Article →</a>
             </div>
         </div>
     </div>
@@ -92,15 +97,29 @@
                 tags: ["WiFi"],
                 date: "2025-05-25",
                 details: "Some basic WiFi hacking techniques and penetration testing methods for WAP/WAP2 networks. Covers common vulnerabilities, password cracking, and security best practices.",
-                link: "https://medium.com/@fuadh6565/wap-wap2-hacking-basic-56dc59e1fdaf?sharedUserId=fuadh6565"
+                link: "https://medium.com/@fuadh6565/wap-wap2-hacking-basic-56dc59e1fdaf?sharedUserId=fuadh6565",
+                topics: [
+                    { name: "WAP/WAP2 Authentication", level: "easy" },
+                    { name: "WPS PIN Attack", level: "easy" },
+                    { name: "PMKID Capture", level: "medium" },
+                    { name: "Handshake Capture & Cracking", level: "medium" },
+                    { name: "WPA2 Dictionary Attack", level: "medium" }
+                ]
             },
             {
                 id: 2,
                 title: "Bash Scripting - Tryhackme",
                 tags: ["THM", "Bash scripting", "Writeup"],
-                date: "2025-06-08",
+                date: "2025-05-08",
                 details: "A comprehensive writeup on Bash scripting room encountered on TryHackMe. Explains command-line techniques, script automation, and practical applications in penetration testing scenarios.",
-                link: "https://medium.com/@fuadh6565/bash-scripting-tryhackme-42c3a0cdbddb?sharedUserId=fuadh6565"
+                link: "https://medium.com/@fuadh6565/bash-scripting-tryhackme-42c3a0cdbddb?sharedUserId=fuadh6565",
+                topics: [
+                    { name: "Variables & Conditionals", level: "easy" },
+                    { name: "Looping Constructs", level: "easy" },
+                    { name: "Functions & Scope", level: "medium" },
+                    { name: "File I/O & Parsing", level: "medium" },
+                    { name: "Automation Scripts", level: "hard" }
+                ]
             },
             {
                 id: 3,
@@ -108,7 +127,14 @@
                 tags: ["Password cracking", "THM", "Writeup"],
                 date: "2026-07-19",
                 details: "A detailed writeup on password cracking techniques explored in a TryHackMe room. Covers hash types, cracking tools, and methodologies for ethical hacking and security testing.",
-                link: "https://medium.com/@fuadh6565/password-cracking-tryhackme-7ec5434ea9bc?sharedUserId=fuadh6565"
+                link: "https://medium.com/@fuadh6565/password-cracking-tryhackme-7ec5434ea9bc?sharedUserId=fuadh6565",
+                topics: [
+                    { name: "Hash Identification", level: "easy" },
+                    { name: "Dictionary Attacks", level: "easy" },
+                    { name: "Rule-based Attacks", level: "medium" },
+                    { name: "Mask Attacks", level: "medium" },
+                    { name: "Hybrid Attacks", level: "hard" }
+                ]
             }
         ];
 
@@ -230,10 +256,10 @@
                             <span class="blog-title">${blog.title}</span>
 <div class="blog-meta">
                                 ${blog.tags.map(t => `<span class="blog-tag-badge">${t}</span>`).join('')}
-                                <span>📅 ${blog.date}</span>
+                                <span>${blog.date}</span>
                             </div>
                         </div>
-                        <button class="btn" onclick="openModal(${blog.id})">▶ Read</button>
+                                <button class="btn-link-style" onclick="openModal(${blog.id})">▶ Read →</button>
                     `;
                     container.appendChild(row);
                 });
@@ -272,8 +298,42 @@
             if (!blog) return;
 
             document.getElementById('modalTitle').innerText = blog.title;
-            document.getElementById('modalDetails').innerText = blog.details;
+            document.getElementById('modalDescription').innerText = blog.details;
             document.getElementById('modalLink').href = blog.link;
+
+            // Render topics with difficulty levels
+            const topicsList = document.getElementById('modalTopicsList');
+            topicsList.innerHTML = '';
+            if (blog.topics && blog.topics.length > 0) {
+                document.getElementById('modalTopicsContainer').style.display = 'block';
+                blog.topics.forEach((topic, i) => {
+                    const topicItem = document.createElement('div');
+                    topicItem.style.cssText = 'display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 0.88rem; color: var(--text);';
+                    
+                    const num = document.createElement('span');
+                    num.style.cssText = 'color: var(--green-dim); font-weight: 500; min-width: 24px;';
+                    num.textContent = (i + 1) + '.';
+                    
+                    const name = document.createElement('span');
+                    name.style.cssText = 'flex: 1;';
+                    name.textContent = topic.name;
+                    
+                    const level = document.createElement('span');
+                    let levelColor;
+                    if (topic.level === 'easy') levelColor = '#4caf50';
+                    else if (topic.level === 'medium') levelColor = '#ff9800';
+                    else levelColor = '#f44336';
+                    level.style.cssText = `color: ${levelColor}; font-size: 0.75rem; border: 1px solid ${levelColor}; padding: 1px 8px; border-radius: 2px; text-transform: uppercase; opacity: 0.85;`;
+                    level.textContent = topic.level;
+                    
+                    topicItem.appendChild(num);
+                    topicItem.appendChild(name);
+                    topicItem.appendChild(level);
+                    topicsList.appendChild(topicItem);
+                });
+            } else {
+                document.getElementById('modalTopicsContainer').style.display = 'none';
+            }
 
             document.getElementById('blogModal').classList.add('open');
             document.body.style.overflow = 'hidden';
