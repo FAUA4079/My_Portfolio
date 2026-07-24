@@ -38,16 +38,16 @@
         </div>
         <hr class="section-divider">
 
-        <!-- ===== TAB NAVIGATION ===== -->
+<!-- ===== TAB NAVIGATION ===== -->
         <div class="tab-nav">
             <button class="tab-btn active" onclick="switchTab('all', this)">
-                <span class="tab-icon">📦</span> All
+                All
             </button>
             <button class="tab-btn" onclick="switchTab('defensive', this)">
-                <span class="tab-icon">🔒</span> Defensive
+                Defensive
             </button>
             <button class="tab-btn" onclick="switchTab('offensive', this)">
-                <span class="tab-icon">🛠</span> Offensive
+                Offensive
             </button>
         </div>
 
@@ -70,11 +70,24 @@
     <div class="modal-overlay" id="projectModal">
         <div class="modal-content">
             <h3 class="modal-title" id="projectModalTitle">Project Title</h3>
-            <div class="modal-details" id="projectModalDetails">Detailed information about the project goes here...</div>
+            <div class="modal-details" id="projectModalDetails">
+                <div class="modal-section">
+                    <span class="modal-section-label">🎯 Goal</span>
+                    <p id="modalGoal">Project goal description...</p>
+                </div>
+                <div class="modal-section">
+                    <span class="modal-section-label">⚠️ Problem</span>
+                    <p id="modalProblem">Problem description...</p>
+                </div>
+                <div class="modal-section">
+                    <span class="modal-section-label">✅ Solution</span>
+                    <p id="modalSolution">Solution description...</p>
+                </div>
+            </div>
             <div class="card-tech" id="projectModalTech" style="margin-bottom: 16px;"></div>
-            <div class="modal-actions">
+<div class="modal-actions-block">
                 <button class="modal-close" onclick="closeProjectModal()">Close</button>
-                <a href="#" id="projectModalLink" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                <a href="#" id="projectModalLink" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
             </div>
         </div>
     </div>
@@ -91,9 +104,11 @@
                 id: 1,
                 title: "LogRisk Analyzer",
                 category: "defensive",
-                details: "A command-line Security GRC tool that automates log scanning and risk assessment across Linux and Windows systems. It leverages customizable JSON rules to detect security threats and operational anomalies, instantly assigning severity levels and actionable mitigation strategies. Built with Python, it supports real-time log parsing, customizable rule engines, and comprehensive report generation for compliance auditing.",
                 tech: ["Python", "Log", "Report", "GRC", "JSON"],
-                link: "https://github.com/FAUA4079/LogRisk"
+                link: "https://github.com/FAUA4079/LogRisk",
+                goal: "Build an automated GRC log scanning and risk assessment tool that helps security teams quickly identify threats and compliance issues across Linux and Windows environments.",
+                problem: "Manual log analysis is time-consuming and error-prone. Security teams struggle to keep up with大量 logs from multiple systems, often missing critical threats or spending excessive time on routine checks.",
+                solution: "LogRisk Analyzer automates log parsing with customizable JSON rules, instantly assigning severity levels to detected threats and providing actionable mitigation strategies. It generates comprehensive compliance reports, reducing analysis time from hours to minutes."
             }
         ];
 
@@ -136,16 +151,15 @@
             }
         }
 
-        function createProjectCard(project, delay) {
+function createProjectCard(project, delay) {
             const card = document.createElement('div');
             card.className = `card animate-fade-up delay-${Math.min(delay, 5)}`;
             card.innerHTML = `
                 <h3>${project.title}</h3>
-                <p>${project.details}</p>
                 <div class="card-tech">
                     ${project.tech.map(t => `<span>${t}</span>`).join('')}
                 </div>
-                <button class="btn" onclick="openProjectModal(${project.id})" style="margin-top: 12px;">▶ Details</button>
+                <button class="btn-link-style" onclick="openProjectModal(${project.id})" style="margin-top: 12px;">▶ Details →</button>
             `;
             return card;
         }
@@ -218,7 +232,9 @@
             if (!project) return;
 
             document.getElementById('projectModalTitle').innerText = project.title;
-            document.getElementById('projectModalDetails').innerText = project.details;
+            document.getElementById('modalGoal').innerText = project.goal;
+            document.getElementById('modalProblem').innerText = project.problem;
+            document.getElementById('modalSolution').innerText = project.solution;
             document.getElementById('projectModalLink').href = project.link;
 
             const techContainer = document.getElementById('projectModalTech');
