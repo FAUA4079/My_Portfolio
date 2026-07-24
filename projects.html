@@ -52,73 +52,16 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- TAB 1: ALL PROJECTS                                          -->
+        <!-- TAB CONTAINERS (Dynamically populated via JavaScript)         -->
         <!-- ============================================================ -->
         <div id="tab-all" class="tab-content active">
-
-            <div class="card-grid">
-
-                <!-- LogRisk Analyzer -->
-                <div class="card animate-fade-up delay-1">
-                    <h3>LogRisk Analyzer</h3>
-                    <p>A command-line Security GRC tool that automates log scanning and risk assessment across Linux and
-                        Windows systems. It leverages customizable JSON rules to detect security threats and operational
-                        anomalies, instantly assigning severity levels and actionable mitigation strategies.</p>
-                    <div class="card-tech">
-                        <span>Python</span>
-                        <span>Log</span>
-                        <span>Report</span>
-                        <span>GRC</span>
-                        <span>JSON</span>
-                    </div>
-                    <button class="btn" onclick="openProjectModal(1)" style="margin-top: 12px;">▶ Details</button>
-                </div>
-
-            </div>
-
+            <div class="card-grid" id="grid-all"></div>
         </div>
-
-        <!-- ============================================================ -->
-        <!-- TAB 2: DEFENSIVE                                            -->
-        <!-- ============================================================ -->
         <div id="tab-defensive" class="tab-content">
-
-            <div class="card-grid">
-
-                <!-- LogRisk Analyzer (Defensive Tab) -->
-                <div class="card animate-fade-up delay-1">
-                    <h3>LogRisk Analyzer</h3>
-                    <p>A command-line Security GRC tool that automates log scanning and risk assessment across Linux and
-                        Windows systems. It leverages customizable JSON rules to detect security threats and operational
-                        anomalies, instantly assigning severity levels and actionable mitigation strategies.</p>
-                    <div class="card-tech">
-                        <span>Python</span>
-                        <span>Log</span>
-                        <span>Report</span>
-                        <span>GRC</span>
-                        <span>JSON</span>
-                    </div>
-                    <button class="btn" onclick="openProjectModal(1)" style="margin-top: 12px;">▶ Details</button>
-                </div>
-
-            </div>
-
+            <div class="card-grid" id="grid-defensive"></div>
         </div>
-
-        <!-- ============================================================ -->
-        <!-- TAB 3: OFFENSIVE                                            -->
-        <!-- ============================================================ -->
         <div id="tab-offensive" class="tab-content">
-
-            <div class="card-grid">
-
-                <!-- No Offensive Projects -->
-                <div class="card animate-fade-up delay-1">
-                    <h3>No Offensive Projects Yet</h3>
-                    <p>Currently, there are no offensive security projects available. Stay tuned for future updates!</p>
-                </div>
-
-            </div>
+            <div class="card-grid" id="grid-offensive"></div>
         </div>
 
     </div>
@@ -147,12 +90,75 @@
             {
                 id: 1,
                 title: "LogRisk Analyzer",
-                category: "security",
+                category: "defensive",
                 details: "A command-line Security GRC tool that automates log scanning and risk assessment across Linux and Windows systems. It leverages customizable JSON rules to detect security threats and operational anomalies, instantly assigning severity levels and actionable mitigation strategies. Built with Python, it supports real-time log parsing, customizable rule engines, and comprehensive report generation for compliance auditing.",
                 tech: ["Python", "Log", "Report", "GRC", "JSON"],
                 link: "https://github.com/FAUA4079/LogRisk"
             }
         ];
+
+        // ===== RENDER PROJECTS DYNAMICALLY =====
+        function renderProjects() {
+            const grids = {
+                all: document.getElementById('grid-all'),
+                defensive: document.getElementById('grid-defensive'),
+                offensive: document.getElementById('grid-offensive')
+            };
+
+            // Clear all grids
+            Object.values(grids).forEach(g => { if (g) g.innerHTML = ''; });
+
+            // Categorize projects
+            const defensiveProjects = projects.filter(p => p.category === 'defensive');
+            const offensiveProjects = projects.filter(p => p.category === 'offensive');
+
+            // Render "all" tab — all projects
+            projects.forEach((project, i) => {
+                grids.all.appendChild(createProjectCard(project, i + 1));
+            });
+
+            // Render "defensive" tab
+            if (defensiveProjects.length > 0) {
+                defensiveProjects.forEach((project, i) => {
+                    grids.defensive.appendChild(createProjectCard(project, i + 1));
+                });
+            } else {
+                grids.defensive.appendChild(createEmptyCard('No Defensive Projects Yet', 'Stay tuned for defensive security projects coming soon!'));
+            }
+
+            // Render "offensive" tab
+            if (offensiveProjects.length > 0) {
+                offensiveProjects.forEach((project, i) => {
+                    grids.offensive.appendChild(createProjectCard(project, i + 1));
+                });
+            } else {
+                grids.offensive.appendChild(createEmptyCard('No Offensive Projects Yet', 'Currently, there are no offensive security projects available. Stay tuned for future updates!'));
+            }
+        }
+
+        function createProjectCard(project, delay) {
+            const card = document.createElement('div');
+            card.className = `card animate-fade-up delay-${Math.min(delay, 5)}`;
+            card.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.details}</p>
+                <div class="card-tech">
+                    ${project.tech.map(t => `<span>${t}</span>`).join('')}
+                </div>
+                <button class="btn" onclick="openProjectModal(${project.id})" style="margin-top: 12px;">▶ Details</button>
+            `;
+            return card;
+        }
+
+        function createEmptyCard(title, message) {
+            const card = document.createElement('div');
+            card.className = 'card animate-fade-up delay-1';
+            card.innerHTML = `
+                <h3>${title}</h3>
+                <p>${message}</p>
+            `;
+            return card;
+        }
 
         // ===== URL HELPERS =====
         function setHash(value) {
@@ -272,7 +278,8 @@
             });
         });
 
-        // Initialize from URL
+        // Render projects and initialize from URL
+        renderProjects();
         initFromUrl();
     </script>
 </body>
