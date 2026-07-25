@@ -510,8 +510,10 @@ a:hover {
 /* Modal actions - block layout */
 .modal-actions-block {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
     border-top: 1px solid var(--border);
     padding-top: 18px;
     position: relative;
@@ -519,13 +521,17 @@ a:hover {
 }
 
 .modal-actions-block .btn {
-    width: 100%;
+    width: auto;
     justify-content: center;
+    padding: 8px 18px;
+    font-size: 0.78rem;
 }
 
 .modal-actions-block .modal-close {
-    width: 100%;
+    width: auto;
     text-align: center;
+    padding: 8px 18px;
+    font-size: 0.78rem;
 }
 
 /* Achievements - bottom-right button container */
