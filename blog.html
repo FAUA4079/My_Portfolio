@@ -1,408 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toreno79 | Blog</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additions to your existing stylesheet. */
+        .filter-bar { flex-wrap: wrap; gap: 8px; }
+        #tagFilters { display: flex; flex-wrap: wrap; gap: 8px; }
+        .blog-title-line { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .blog-row.is-latest { border-left: 3px solid var(--green, #4ade80); background: rgba(74, 222, 128, .06); }
+        .blog-new-badge { display: inline-block; background: var(--green, #4ade80); color: #082012; border-radius: 4px; padding: 3px 8px; font-size: .7rem; font-weight: 800; letter-spacing: .08em; line-height: 1.4; white-space: nowrap; }
+        .blog-read-link { white-space: nowrap; text-decoration: none; }
+        .blog-info { min-width: 0; }
+        .blog-title { overflow-wrap: anywhere; }
+        .blog-meta { flex-wrap: wrap; }
+        .blog-read-link:focus-visible, .filter-btn:focus-visible, .page-btn:focus-visible { outline: 2px solid var(--green, #4ade80); outline-offset: 4px; }
+        @media (max-width: 600px) {
+            .blog-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+            .sort-toggle { margin-left: 0; }
+        }
+    </style>
 </head>
-
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="navbar-inner">
-            <a href="index.html" class="navbar-brand">:> Toreno79_</a>
-            <button class="nav-toggle" onclick="document.querySelector('.navbar-links').classList.toggle('open')"
-                aria-label="Toggle navigation">☰</button>
-            <div class="navbar-links">
+            <a href="index.html" class="navbar-brand">:&gt; Toreno79_</a>
+            <button class="nav-toggle" type="button" id="navToggle" aria-label="Toggle navigation" aria-controls="navbarLinks" aria-expanded="false">☰</button>
+            <div class="navbar-links" id="navbarLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="education.html">Education</a>
                 <a href="achievements.html">Achievements</a>
                 <a href="experience.html">Experience</a>
                 <a href="projects.html">Projects</a>
-                <a href="blog.html" class="active">Blog</a>
+                <a href="blog.html" class="active" aria-current="page">Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="main-wrapper">
-
+    <main class="main-wrapper">
         <header class="page-header">
-            <h1>Security & Code Writeups</h1>
+            <h1>Security &amp; Code Writeups</h1>
             <p>Chronological logs of pentest findings, CTF walkthroughs, and programming insights.</p>
         </header>
-
-        <!-- Tag Filtering Bar -->
         <div class="filter-bar" id="filterBar">
-<button class="filter-btn active" data-tag="all">All Tags</button>
-            <button class="filter-btn" data-tag="THM">THM</button>
-            <button class="filter-btn" data-tag="WiFi">WiFi</button>
-            <button class="filter-btn" data-tag="Bash scripting">Bash scripting</button>
-            <button class="filter-btn" data-tag="Password cracking">Password cracking</button>
-            <button class="filter-btn" data-tag="Writeup">Writeup</button>
+            <div id="tagFilters" role="group" aria-label="Filter articles by tag"></div>
             <div class="sort-toggle">
-                <button class="filter-btn active" id="sortToggle" onclick="toggleSort()">↓ Newest First</button>
+                <button type="button" class="filter-btn active" id="sortToggle">↓ Newest First</button>
             </div>
         </div>
-
-        <!-- Blog Container (Top to Bottom - Old to New) -->
-        <div class="blog-container" id="blogContainer">
-            <!-- Dynamically populated via JavaScript -->
+        <div class="blog-container" id="blogContainer" aria-live="polite"></div>
+        <noscript><p>Enable JavaScript to filter the articles, or <a href="https://medium.com/@fuadh6565">read all writeups on Medium</a>.</p></noscript>
+        <div class="pagination" id="paginationControls" aria-label="Article pages">
+            <button type="button" class="page-btn" id="prevBtn">← Prev</button>
+            <span class="page-indicator" id="pageIndicator" aria-live="polite">Page 1 of 1</span>
+            <button type="button" class="page-btn" id="nextBtn">Next →</button>
         </div>
+    </main>
+    <footer class="footer"><p>&copy; 2026 Toreno79</p></footer>
 
-        <!-- Pagination Controls -->
-        <div class="pagination" id="paginationControls">
-            <button class="page-btn" id="prevBtn" onclick="changePage(-1)">← Prev</button>
-            <span class="page-indicator" id="pageIndicator">Page 1 of 1</span>
-            <button class="page-btn" id="nextBtn" onclick="changePage(1)">Next →</button>
-        </div>
-
-    </div>
-
-    <!-- Modal Popup -->
-    <div class="modal-overlay" id="blogModal">
-        <div class="modal-content">
-            <h3 class="modal-title" id="modalTitle">Blog Title</h3>
-            <div class="modal-details" id="modalDetails">
-                <p id="modalDescription">Detailed breakdown and insights of the blog post go here...</p>
-                <div id="modalTopicsContainer" style="margin-top: 16px;">
-                    <span class="modal-section-label" style="display: block; color: var(--green); font-weight: 600; font-size: 0.88rem; margin-bottom: 8px; letter-spacing: 0.3px;">Topics Covered</span>
-                    <div id="modalTopicsList"></div>
-                </div>
-            </div>
-<div class="modal-actions-block">
-                <a href="#" id="modalLink" class="btn" target="_blank" rel="noopener noreferrer">Read Full Article →</a>
-                <button class="modal-close" onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-<footer class="footer">
-        <p>&copy; 2026 Toreno79</p>
-    </footer>
-
-    <!-- JavaScript Logic -->
     <script>
-        // All blogs data ordered from Old to New (chronological order)
+        // ADD FUTURE ARTICLES HERE. Use a unique id and the publication date.
+        // Array order does not matter. Tags and the latest-post badge are automatic.
+        // Dates: YYYY-MM-DD (or a full ISO timestamp to distinguish same-day posts).
+        // For identical dates, the larger id wins the NEW badge.
+        // This is a manually maintained list, not an automatic Medium feed import.
         const blogs = [
             {
                 id: 1,
                 title: "WAP/WAP2 Hacking-Basic",
                 tags: ["WiFi"],
-                date: "2025-05-25",
-                details: "Some basic WiFi hacking techniques and penetration testing methods for WAP/WAP2 networks. Covers common vulnerabilities, password cracking, and security best practices.",
-                link: "https://medium.com/@fuadh6565/wap-wap2-hacking-basic-56dc59e1fdaf?sharedUserId=fuadh6565",
-                topics: [
-                    { name: "WAP/WAP2 Authentication", level: "easy" },
-                    { name: "WPS PIN Attack", level: "easy" },
-                    { name: "PMKID Capture", level: "medium" },
-                    { name: "Handshake Capture & Cracking", level: "medium" },
-                    { name: "WPA2 Dictionary Attack", level: "medium" }
-                ]
+                date: "2025-05-30",
+                link: "https://medium.com/@fuadh6565/wap-wap2-hacking-basic-56dc59e1fdaf"
             },
             {
                 id: 2,
-                title: "Bash Scripting - Tryhackme",
+                title: "Bash Scripting — Tryhackme",
                 tags: ["THM", "Bash scripting", "Writeup"],
-                date: "2025-05-08",
-                details: "A comprehensive writeup on Bash scripting room encountered on TryHackMe. Explains command-line techniques, script automation, and practical applications in penetration testing scenarios.",
-                link: "https://medium.com/@fuadh6565/bash-scripting-tryhackme-42c3a0cdbddb?sharedUserId=fuadh6565",
-                topics: [
-                    { name: "Variables & Conditionals", level: "easy" },
-                    { name: "Looping Constructs", level: "easy" },
-                    { name: "Functions & Scope", level: "medium" },
-                    { name: "File I/O & Parsing", level: "medium" },
-                    { name: "Automation Scripts", level: "hard" }
-                ]
+                date: "2025-06-08",
+                link: "https://medium.com/@fuadh6565/bash-scripting-tryhackme-42c3a0cdbddb"
             },
             {
                 id: 3,
                 title: "Password Cracking — TryHackMe",
                 tags: ["Password cracking", "THM", "Writeup"],
                 date: "2026-07-19",
-                details: "A detailed writeup on password cracking techniques explored in a TryHackMe room. Covers hash types, cracking tools, and methodologies for ethical hacking and security testing.",
-                link: "https://medium.com/@fuadh6565/password-cracking-tryhackme-7ec5434ea9bc?sharedUserId=fuadh6565",
-                topics: [
-                    { name: "Hash Identification", level: "easy" },
-                    { name: "Dictionary Attacks", level: "easy" },
-                    { name: "Rule-based Attacks", level: "medium" },
-                    { name: "Mask Attacks", level: "medium" },
-                    { name: "Hybrid Attacks", level: "hard" }
-                ]
+                link: "https://medium.com/@fuadh6565/password-cracking-tryhackme-7ec5434ea9bc"
             },
             {
                 id: 4,
                 title: "JWT Security — TryHackMe",
-                tags: ["THM", "Writeup"],
+                tags: ["THM", "JWT", "Writeup"],
                 date: "2026-07-25",
-                details: "A detailed writeup on JSON Web Token (JWT) vulnerabilities and security best practices explored in a TryHackMe room. Covers token structure, signature verification bypasses, cryptographic attacks, and implementation flaws.",
-                link: "https://medium.com/@fuadh6565/jwt-security-tryhackme-9b5133c25b03",
-                topics: [
-                    { name: "Token-Based Authentication & JWT Structure", level: "easy" },
-                    { name: "Sensitive Information Disclosure", level: "easy" },
-                    { name: "Signature Verification Bypass & None Algorithm", level: "medium" },
-                    { name: "Weak Secret Cracking (HMAC Brute-Forcing)", level: "medium" },
-                    { name: "Algorithm Downgrade Attacks (RS256 to HS256)", level: "hard" },
-                    { name: "JWT Lifetimes & Missing Expiration Claims", level: "medium" },
-                    { name: "Cross-Service Relay Attacks & Audience Claims", level: "medium" }
-                ]
+                link: "https://medium.com/@fuadh6565/jwt-security-tryhackme-9b5133c25b03"
+            },
+            {
+                id: 5,
+                title: "Local Authority — picoCTF",
+                tags: ["picoCTF", "Writeup"],
+                date: "2026-09-05",
+                link: "https://medium.com/@fuadh6565/local-authority-picoctf-d4f8b150ddff"
+            },
+            {
+                id: 6,
+                title: "User ID controlled by request parameter — PortSwigger",
+                tags: ["PortSwigger", "Access control", "Writeup"],
+                date: "2026-09-05",
+                link: "https://medium.com/@fuadh6565/user-id-controlled-by-request-parameter-portswigger-da08a74f508c"
+            },
+            {
+                id: 7,
+                title: "SSTI1 — picoCTF",
+                tags: ["picoCTF", "SSTI", "Writeup"],
+                date: "2026-09-06",
+                link: "https://medium.com/@fuadh6565/ssti1-picoctf-589b4eeb3e26"
+            },
+            {
+                id: 8,
+                title: "User role can be modified in user profile — PortSwigger",
+                tags: ["PortSwigger", "Access control", "Writeup"],
+                date: "2026-09-06",
+                link: "https://medium.com/@fuadh6565/user-role-can-be-modified-in-user-profile-portswigger-2595ebf5abb1"
+            },
+            {
+                id: 9,
+                title: "JWT authentication bypass via unverified signature — PortSwigger",
+                tags: ["PortSwigger", "JWT", "Writeup"],
+                date: "2026-09-08",
+                link: "https://medium.com/@fuadh6565/jwt-authentication-bypass-via-unverified-signature-portswigger-4ca9104ff805"
+            },
+            {
+                id: 10,
+                title: "IronHold — TryHackMe",
+                tags: ["THM", "Writeup"],
+                date: "2026-09-29",
+                link: "https://medium.com/@fuadh6565/ironhold-tryhackme-0406efa4f61d"
             }
         ];
 
-        let currentPage = 1;
         const blogsPerPage = 5;
+        const tags = [...new Set(blogs.flatMap(blog => blog.tags))];
+        let currentPage = 1;
         let currentTag = 'all';
-        let sortAscending = false; // Default: Newest First (descending)
+        let sortAscending = false;
+        const byNewest = (a, b) => Date.parse(b.date) - Date.parse(a.date) || b.id - a.id;
+        // Compute globally, so filtering never labels an older article as NEW.
+        const latestBlog = [...blogs].sort(byNewest)[0];
+        const container = document.getElementById('blogContainer');
 
-        // ===== URL HELPERS =====
-        function getQueryParam(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
+        function element(tag, className, text) {
+            const node = document.createElement(tag);
+            node.className = className;
+            if (text !== undefined) node.textContent = text;
+            return node;
         }
 
-        function getHashParam() {
-            const hash = window.location.hash.slice(1);
-            if (hash.startsWith('post-')) return parseInt(hash.split('-')[1]);
-            return null;
+        function readUrl() {
+            const params = new URLSearchParams(window.location.search);
+            currentTag = tags.includes(params.get('tag')) ? params.get('tag') : 'all';
+            const page = Number(params.get('page'));
+            currentPage = Number.isSafeInteger(page) && page > 0 ? page : 1;
+            sortAscending = params.get('sort') === 'asc';
         }
 
-        function setQueryParams() {
-            const params = new URLSearchParams();
-            if (currentTag !== 'all') params.set('tag', currentTag);
-            if (currentPage > 1) params.set('page', currentPage);
-            if (sortAscending) params.set('sort', 'asc');
-            const qs = params.toString();
-            const newUrl = qs ? window.location.pathname + '?' + qs : window.location.pathname;
-            history.pushState(null, '', newUrl);
-        }
-
-        function setHash(value) {
-            if (value) {
-                // Preserve query params when setting hash
-                const qs = window.location.search;
-                history.pushState(null, '', qs ? window.location.pathname + qs + '#' + value : window.location.pathname + '#' + value);
-            } else {
-                // Clear hash, preserve query params
-                const qs = window.location.search;
-                history.pushState(null, '', qs ? window.location.pathname + qs : window.location.pathname);
+        function writeUrl(replace = false) {
+            const url = new URL(window.location.href);
+            currentTag === 'all' ? url.searchParams.delete('tag') : url.searchParams.set('tag', currentTag);
+            currentPage === 1 ? url.searchParams.delete('page') : url.searchParams.set('page', String(currentPage));
+            sortAscending ? url.searchParams.set('sort', 'asc') : url.searchParams.delete('sort');
+            if (url.href !== window.location.href) {
+                history[replace ? 'replaceState' : 'pushState'](null, '', url.href);
             }
         }
 
-        // ===== INIT STATE FROM URL =====
-        function initFromUrl() {
-            const tagParam = getQueryParam('tag');
-            if (tagParam) {
-                currentTag = tagParam;
-                // Activate the corresponding filter button
-                document.querySelectorAll('.filter-bar .filter-btn:not(#sortToggle)').forEach(b => {
-                    b.classList.toggle('active', b.getAttribute('data-tag') === tagParam);
-                });
-            }
-
-            const pageParam = getQueryParam('page');
-            if (pageParam) currentPage = parseInt(pageParam) || 1;
-
-            const sortParam = getQueryParam('sort');
-            if (sortParam === 'asc') {
-                sortAscending = true;
-                document.getElementById('sortToggle').textContent = '↑ Oldest First';
-            }
-
-            const postId = getHashParam();
-            if (postId) {
-                setTimeout(() => openModal(postId), 100);
-            }
-        }
-
-        // Filter blogs based on tag
-        function getFilteredBlogs() {
-            let filtered;
-            if (currentTag === 'all') {
-                filtered = [...blogs];
-            } else {
-                filtered = blogs.filter(b => b.tags && b.tags.includes(currentTag));
-            }
-            // Sort by date
-            filtered.sort((a, b) => {
-                const dateA = new Date(a.date);
-                const dateB = new Date(b.date);
-                return sortAscending ? dateA - dateB : dateB - dateA;
+        function renderBlogs() {
+            const filtered = blogs.filter(blog => currentTag === 'all' || blog.tags.includes(currentTag));
+            filtered.sort((a, b) => sortAscending ? -byNewest(a, b) : byNewest(a, b));
+            const totalPages = Math.max(1, Math.ceil(filtered.length / blogsPerPage));
+            currentPage = Math.max(1, Math.min(currentPage, totalPages));
+            container.replaceChildren();
+            filtered.slice((currentPage - 1) * blogsPerPage, currentPage * blogsPerPage).forEach(blog => {
+                const isLatest = blog.id === latestBlog?.id;
+                const row = element('article', 'blog-row animate-fade-in' + (isLatest ? ' is-latest' : ''));
+                row.id = 'post-' + blog.id;
+                const info = element('div', 'blog-info');
+                const titleLine = element('div', 'blog-title-line');
+                titleLine.append(element('span', 'blog-title', blog.title));
+                if (isLatest) {
+                    const badge = element('span', 'blog-new-badge', 'NEW');
+                    badge.title = 'Latest published article';
+                    titleLine.append(badge);
+                }
+                const meta = element('div', 'blog-meta');
+                blog.tags.forEach(tag => meta.append(element('span', 'blog-tag-badge', tag)));
+                const date = element('time', '', blog.date.slice(0, 10));
+                date.dateTime = blog.date;
+                meta.append(date);
+                info.append(titleLine, meta);
+                const link = element('a', 'btn-link-style blog-read-link', 'Read More →');
+                link.href = blog.link;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.setAttribute('aria-label', 'Read ' + blog.title + ' (opens in a new tab)');
+                row.append(info, link);
+                container.append(row);
             });
-            return filtered;
+            if (!filtered.length) container.append(element('p', '', 'No logs found for this tag.'));
+            document.getElementById('pageIndicator').textContent = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+            document.getElementById('sortToggle').textContent = sortAscending ? '↑ Oldest First' : '↓ Newest First';
+            document.querySelectorAll('#tagFilters button').forEach(button => {
+                const active = button.dataset.tag === currentTag;
+                button.classList.toggle('active', active);
+                button.setAttribute('aria-pressed', String(active));
+            });
         }
 
-        // Toggle sort order
-        function toggleSort() {
+        ['all', ...tags].forEach(tag => {
+            const button = element('button', 'filter-btn', tag === 'all' ? 'All Tags' : tag);
+            button.type = 'button';
+            button.dataset.tag = tag;
+            button.addEventListener('click', () => {
+                currentTag = tag;
+                currentPage = 1;
+                renderBlogs();
+                writeUrl();
+            });
+            document.getElementById('tagFilters').append(button);
+        });
+
+        document.getElementById('sortToggle').addEventListener('click', () => {
             sortAscending = !sortAscending;
-            const btn = document.getElementById('sortToggle');
-            btn.textContent = sortAscending ? '↑ Oldest First' : '↓ Newest First';
             currentPage = 1;
             renderBlogs();
-            setQueryParams();
-        }
-
-        // Render blogs for current page
-        function renderBlogs() {
-            const filtered = getFilteredBlogs();
-            const totalPages = Math.ceil(filtered.length / blogsPerPage) || 1;
-
-            if (currentPage > totalPages) currentPage = totalPages;
-            if (currentPage < 1) currentPage = 1;
-
-            const start = (currentPage - 1) * blogsPerPage;
-            const end = start + blogsPerPage;
-            const paginatedBlogs = filtered.slice(start, end);
-
-            const container = document.getElementById('blogContainer');
-            container.innerHTML = '';
-
-            if (paginatedBlogs.length === 0) {
-                container.innerHTML = `<p style="text-align: center; color: var(--text-dim); padding: 40px 0;">No logs found for this tag.</p>`;
-            } else {
-                paginatedBlogs.forEach(blog => {
-                    const row = document.createElement('div');
-                    row.className = 'blog-row animate-fade-in';
-                    row.innerHTML = `
-                        <div class="blog-info">
-                            <span class="blog-title">${blog.title}</span>
-<div class="blog-meta">
-                                ${blog.tags.map(t => `<span class="blog-tag-badge">${t}</span>`).join('')}
-                                <span>${blog.date}</span>
-                            </div>
-                        </div>
-                                <button class="btn-link-style" onclick="openModal(${blog.id})">▶ Read →</button>
-                    `;
-                    container.appendChild(row);
-                });
-            }
-
-            // Update pagination UI
-            document.getElementById('pageIndicator').innerText = `Page ${currentPage} of ${totalPages}`;
-            document.getElementById('prevBtn').disabled = currentPage === 1;
-            document.getElementById('nextBtn').disabled = currentPage === totalPages || totalPages === 0;
-
-            // Update URL query params
-            setQueryParams();
-        }
-
-        // Pagination control
+            writeUrl();
+        });
         function changePage(direction) {
             currentPage += direction;
             renderBlogs();
+            writeUrl();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // Tag filter buttons setup (exclude sort toggle)
-        document.querySelectorAll('.filter-bar .filter-btn:not(#sortToggle)').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-bar .filter-btn:not(#sortToggle)').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                currentTag = e.target.getAttribute('data-tag');
-                currentPage = 1;
-                renderBlogs();
-            });
-        });
-
-        // Modal Pop-up Handlers
-        function openModal(id) {
-            const blog = blogs.find(b => b.id === id);
-            if (!blog) return;
-
-            document.getElementById('modalTitle').innerText = blog.title;
-            document.getElementById('modalDescription').innerText = blog.details;
-            document.getElementById('modalLink').href = blog.link;
-
-            // Render topics with difficulty levels
-            const topicsList = document.getElementById('modalTopicsList');
-            topicsList.innerHTML = '';
-            if (blog.topics && blog.topics.length > 0) {
-                document.getElementById('modalTopicsContainer').style.display = 'block';
-                blog.topics.forEach((topic, i) => {
-                    const topicItem = document.createElement('div');
-                    topicItem.style.cssText = 'display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 0.88rem; color: var(--text);';
-                    
-                    const num = document.createElement('span');
-                    num.style.cssText = 'color: var(--green-dim); font-weight: 500; min-width: 24px;';
-                    num.textContent = (i + 1) + '.';
-                    
-                    const name = document.createElement('span');
-                    name.style.cssText = 'flex: 1;';
-                    name.textContent = topic.name;
-                    
-                    const level = document.createElement('span');
-                    let levelColor;
-                    if (topic.level === 'easy') levelColor = '#4caf50';
-                    else if (topic.level === 'medium') levelColor = '#ff9800';
-                    else levelColor = '#f44336';
-                    level.style.cssText = `color: ${levelColor}; font-size: 0.75rem; border: 1px solid ${levelColor}; padding: 1px 8px; border-radius: 2px; text-transform: uppercase; opacity: 0.85;`;
-                    level.textContent = topic.level;
-                    
-                    topicItem.appendChild(num);
-                    topicItem.appendChild(name);
-                    topicItem.appendChild(level);
-                    topicsList.appendChild(topicItem);
-                });
-            } else {
-                document.getElementById('modalTopicsContainer').style.display = 'none';
-            }
-
-            document.getElementById('blogModal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-
-            // Set URL hash
-            setHash('post-' + id);
-        }
-
-        function closeModal() {
-            document.getElementById('blogModal').classList.remove('open');
-            document.body.style.overflow = 'auto';
-            // Clear hash (restore query params)
-            setHash(null);
-        }
-
-        // Close modal on background click
-        document.getElementById('blogModal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('blogModal')) {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && document.getElementById('blogModal').classList.contains('open')) {
-                closeModal();
-            }
-        });
-
-        // Handle browser back/forward
-        window.addEventListener('popstate', function() {
-            // Close modal if open
-            if (document.getElementById('blogModal').classList.contains('open')) {
-                document.getElementById('blogModal').classList.remove('open');
-                document.body.style.overflow = 'auto';
-            }
-            // Re-init from URL
-            initFromUrl();
+        document.getElementById('prevBtn').addEventListener('click', () => changePage(-1));
+        document.getElementById('nextBtn').addEventListener('click', () => changePage(1));
+        window.addEventListener('popstate', () => {
+            readUrl();
             renderBlogs();
         });
 
-        // Close mobile nav when a link is clicked
-        document.querySelectorAll('.navbar-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.navbar-links').classList.remove('open');
-            });
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navbarLinks');
+        navToggle.addEventListener('click', () => {
+            navToggle.setAttribute('aria-expanded', String(navLinks.classList.toggle('open')));
         });
+        navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }));
 
-        // Initial render with URL params
-        initFromUrl();
+        readUrl();
         renderBlogs();
+        writeUrl(true);
     </script>
 </body>
-
 </html>
