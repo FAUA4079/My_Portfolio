@@ -41,6 +41,7 @@ The CIA logo download returned HTTP 403 during implementation. The Experience pa
 `next.config.mjs` uses `output: 'export'`. `npm run build` produces `out/`, including `index.html`, the other eight `.html` routes and shared `_next/` assets. Never edit generated output.
 
 - **Vercel:** `vercel.json` explicitly builds and serves `out/` as static output. Root hosting uses an empty base path. Existing dashboard overrides may need to be removed if a preview reports a conflicting framework/output directory.
+- **Netlify:** the existing integration was discovered through the PR. `netlify.toml` builds and serves `out/`, with the server adapter skipped for this static export.
 - **GitHub Pages:** the workflow installs locked dependencies, builds with the repository base path, checks links, and uploads `out/`. Only `main` deploys. Pull requests build/check without a Pages deployment. A custom domain requires adjusting the base path to match that domain’s root.
 - **404:** navigation and assets are root/base-path aware, including for deeply nested missing URLs.
 - **Preview:** Vercel may automatically create branch previews if its existing integration is enabled. No new hosting service is introduced.
