@@ -1,0 +1,85 @@
+{
+  "certifications": [
+    {
+      "title": "Certified Web Red Team Analyst - Web-RTA",
+      "date": "July 2026",
+      "organization": "Cyberwarfare Labs",
+      "organizationUrl": "https://cyberwarfare.live/product/web-red-team-analyst-web-rta/",
+      "url": "https://labs.cyberwarfare.live/credential/achievement/6a6a45838aed14e94c92f27c"
+    },
+    {
+      "title": "Certified Cybersecurity Foundations - CORD",
+      "date": "July 2026",
+      "organization": "Hackviser",
+      "organizationUrl": "https://app.hackviser.com/certifications/core",
+      "url": "https://www.linkedin.com/posts/fuad-hasan-714984301_certified-cybersecurity-foundations-activity-7481009049174495233-mjJg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk"
+    },
+    {
+      "title": "Certified LLM Security Expert - CLLMSE",
+      "date": "July 2026",
+      "organization": "Red Team Leaders",
+      "organizationUrl": "https://courses.redteamleaders.com/exams/73c286aa-2944-4f26-82ba-0ca14a05a4b7",
+      "url": "https://www.linkedin.com/posts/fuad-hasan-714984301_certified-llm-security-expert-cllmse-activity-7485772987422670849-0yAZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk"
+    },
+    {
+      "title": "Threat Modeling Security Fundamentals",
+      "date": "April 2026",
+      "organization": "Microsoft",
+      "organizationUrl": "https://learn.microsoft.com/en-us/training/paths/tm-threat-modeling-fundamentals/",
+      "url": "https://drive.google.com/file/d/1CUtl4g9oZXOWRgfTisLflt9xk1ymZa7W/view?usp=sharing"
+    },
+    {
+      "title": "Certified Governance Risk and Compliance Analyst - CGRCA",
+      "date": "January 2026",
+      "organization": "Hack&Fix",
+      "organizationUrl": "https://academy.hackandfix.com/courses-archive/certified-governance-risk-and-compliance-analyst/",
+      "url": "https://www.linkedin.com/posts/fuad-hasan-714984301_certified-governance-risk-and-compliance-activity-7417451090150883328-XaHH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk"
+    }
+  ],
+  "seminars": [
+    {
+      "title": "Master Application Security",
+      "date": "April 2026",
+      "organization": "The Team Phoenix",
+      "organizationUrl": null,
+      "url": "https://www.linkedin.com/posts/fuad-hasan-714984301_phenixsummit-webdevelopment-techcommunity-activity-7477355791365210112-7oAh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk"
+    },
+    {
+      "title": "Threat Modeling for Cloud Security: Protecting Modern Infrastructures",
+      "date": "May 2025",
+      "organization": "EC-Council",
+      "organizationUrl": null,
+      "url": "https://www.linkedin.com/posts/fuad-hasan-714984301_cloudsecurity-threatmodeling-cybersecurity-activity-7331340912641392641-NcgP?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk"
+    }
+  ],
+  "ctfs": [
+    {
+      "id": 2,
+      "title": "BCS CTF 2026",
+      "date": "September 2026",
+      "team": "Cyber Invasion Army",
+      "position": "43 / 391",
+      "points": 5513,
+      "members": [
+        ["muzaninexe (Captain)", "4", "992"],
+        ["t0r3n079 [me]", "16", "2971"],
+        ["netcracker", "0", "0"],
+        ["ultrawot", "11", "1550"],
+        ["maisha_rahman", "0", "0"]
+      ]
+    },
+    {
+      "id": 1,
+      "title": "BDSec CTF 2026",
+      "date": "July 2026",
+      "team": "Z3R0",
+      "position": "471 / 545",
+      "points": 50,
+      "members": [
+        ["toreno79 [me]", "1", "50"],
+        ["pari_na", "0", "0"],
+        ["celine", "0", "0"]
+      ]
+    }
+  ]
+}

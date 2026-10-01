@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "LogRisk Analyzer",
+    "category": "defensive",
+    "tech": ["Python", "Log", "Report", "GRC", "JSON"],
+    "link": "https://github.com/FAUA4079/LogRisk",
+    "goal": "Build an automated GRC log scanning and risk assessment tool that helps security teams quickly identify threats and compliance issues across Linux and Windows environments.",
+    "problem": "Manual log analysis is time-consuming and error-prone. Security teams struggle to keep up with large volumes of logs from multiple systems, often missing critical threats or spending excessive time on routine checks.",
+    "solution": "LogRisk Analyzer automates log parsing with customizable JSON rules, instantly assigning severity levels to detected threats and providing actionable mitigation strategies. It generates comprehensive compliance reports, reducing analysis time from hours to minutes."
+  }
+]

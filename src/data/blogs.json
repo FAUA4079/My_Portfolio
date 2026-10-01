@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "WAP/WAP2 Hacking-Basic",
+    "tags": ["WiFi"],
+    "date": "2025-05-30",
+    "link": "https://medium.com/@fuadh6565/wap-wap2-hacking-basic-56dc59e1fdaf"
+  },
+  {
+    "id": 2,
+    "title": "Bash Scripting — Tryhackme",
+    "tags": ["THM", "Bash scripting", "Writeup"],
+    "date": "2025-06-08",
+    "link": "https://medium.com/@fuadh6565/bash-scripting-tryhackme-42c3a0cdbddb"
+  },
+  {
+    "id": 3,
+    "title": "Password Cracking — TryHackMe",
+    "tags": ["Password cracking", "THM", "Writeup"],
+    "date": "2026-07-19",
+    "link": "https://medium.com/@fuadh6565/password-cracking-tryhackme-7ec5434ea9bc"
+  },
+  {
+    "id": 4,
+    "title": "JWT Security — TryHackMe",
+    "tags": ["THM", "JWT", "Writeup"],
+    "date": "2026-07-25",
+    "link": "https://medium.com/@fuadh6565/jwt-security-tryhackme-9b5133c25b03"
+  },
+  {
+    "id": 5,
+    "title": "Local Authority — picoCTF",
+    "tags": ["picoCTF", "Writeup"],
+    "date": "2026-09-05",
+    "link": "https://medium.com/@fuadh6565/local-authority-picoctf-d4f8b150ddff"
+  },
+  {
+    "id": 6,
+    "title": "User ID controlled by request parameter — PortSwigger",
+    "tags": ["PortSwigger", "Access control", "Writeup"],
+    "date": "2026-09-05",
+    "link": "https://medium.com/@fuadh6565/user-id-controlled-by-request-parameter-portswigger-da08a74f508c"
+  },
+  {
+    "id": 7,
+    "title": "SSTI1 — picoCTF",
+    "tags": ["picoCTF", "SSTI", "Writeup"],
+    "date": "2026-09-06",
+    "link": "https://medium.com/@fuadh6565/ssti1-picoctf-589b4eeb3e26"
+  },
+  {
+    "id": 8,
+    "title": "User role can be modified in user profile — PortSwigger",
+    "tags": ["PortSwigger", "Access control", "Writeup"],
+    "date": "2026-09-06",
+    "link": "https://medium.com/@fuadh6565/user-role-can-be-modified-in-user-profile-portswigger-2595ebf5abb1"
+  },
+  {
+    "id": 9,
+    "title": "JWT authentication bypass via unverified signature — PortSwigger",
+    "tags": ["PortSwigger", "JWT", "Writeup"],
+    "date": "2026-09-08",
+    "link": "https://medium.com/@fuadh6565/jwt-authentication-bypass-via-unverified-signature-portswigger-4ca9104ff805"
+  },
+  {
+    "id": 10,
+    "title": "IronHold — TryHackMe",
+    "tags": ["THM", "Writeup"],
+    "date": "2026-09-29",
+    "link": "https://medium.com/@fuadh6565/ironhold-tryhackme-0406efa4f61d"
+  }
+]
