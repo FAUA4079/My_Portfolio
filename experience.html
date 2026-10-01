@@ -30,7 +30,7 @@
     </nav>
 
     <!-- ========== MAIN CONTENT ========== -->
-    <div class="main-wrapper">
+    <main class="main-wrapper">
 
         <div class="page-header">
             <h1>Experience</h1>
@@ -38,47 +38,54 @@
         </div>
         <hr class="section-divider">
 
-        <div class="timeline">
-
-            <!-- Cyber Invasion Army (CIA) -->
-            <div class="timeline-item">
-                <span class="timeline-date">Sep 2026 – Present</span>
-                <h3 class="timeline-title">Member</h3>
-                <p>Cyber Invasion Army (CIA)</p>
-                <p>Part-time · Bangladesh · Hybrid</p>
-            </div>
-
-
-            <!-- Entry 1 -->
-            <div class="timeline-item">
-                <span class="timeline-date">April 2025 — May 2025</span>
-                <div class="timeline-title">Python Programmer - CodSoft (Remote)</div>
-                <p>Completed an intensive Python programming internship focused on developing real-world applications,
-                    enhancing technical proficiency in OOP, data handling, and problem-solving. Delivered 5+ scalable
-                    solutions including task management systems and interactive tools, demonstrating strong coding
-                    practices and commitment to software development excellence.</p>
-                <ul>
-                    <li>Developed 5+ Python applications including a To-Do List with CRUD operations, a Secure Password
-                        Generator, and a Contact Book with JSON data persistence.</li>
-                    <li>Implemented OOP principles and modular coding practices to create scalable solutions with error
-                        handling and user input validation.</li>
-                    <li>Built a CLI-based Calculator supporting arithmetic operations and a Rock-Paper-Scissors game
-                        with score tracking for enhanced user interaction.</li>
-                    <li>Managed version control via GitHub, maintaining a structured repository for all projects with
-                        detailed documentation.</li>
+        <section class="experience-timeline" aria-label="Experience timeline">
+            <article class="experience-card" aria-labelledby="cia-role">
+                <header class="experience-card-header">
+                    <div>
+                        <h2 id="cia-role" class="experience-role">Member</h2>
+                        <p class="experience-organization">Cyber Invasion Army (CIA)</p>
+                    </div>
+                    <span class="experience-status">Current</span>
+                </header>
+                <ul class="experience-meta" aria-label="Position details">
+                    <li>Part-time</li>
+                    <li><time datetime="2026-09">Sep 2026</time> – Present</li>
+                    <li>Bangladesh · Hybrid</li>
                 </ul>
-                <div class="card-tech">
-                    <span>Python</span>
-                    <span>Problem Solving</span>
-                    <span>GitHub</span>
-                    <span>OOP</span>
-                </div>
-            </div>
+                <ul class="experience-responsibilities">
+                    <li>CTF player focused on the Web category.</li>
+                </ul>
+                <ul class="experience-tags" aria-label="Focus areas">
+                    <li>CTF</li>
+                    <li>Web</li>
+                </ul>
+            </article>
 
+            <article class="experience-card" aria-labelledby="codsoft-role">
+                <header class="experience-card-header">
+                    <div>
+                        <h2 id="codsoft-role" class="experience-role">Python Programmer</h2>
+                        <p class="experience-organization">CodSoft</p>
+                    </div>
+                </header>
+                <ul class="experience-meta" aria-label="Position details">
+                    <li>Internship</li>
+                    <li><time datetime="2025-04">April 2025</time> – <time datetime="2025-05">May 2025</time></li>
+                    <li>Remote</li>
+                </ul>
+                <p class="experience-summary">Completed a Python programming internship focused on practical applications and problem-solving.</p>
+                <ul class="experience-responsibilities">
+                    <li>Built 5+ Python applications, including a To-Do List with CRUD operations, a Secure Password Generator, a Contact Book with JSON storage, a CLI Calculator, and a Rock-Paper-Scissors game with score tracking.</li>
+                    <li>Used OOP and modular code with error handling and input validation.</li>
+                    <li>Managed projects on GitHub with version control, organized repositories, and documentation.</li>
+                </ul>
+                <ul class="experience-tags" aria-label="Skills used">
+                    <li>Python</li><li>Problem Solving</li><li>GitHub</li><li>OOP</li>
+                </ul>
+            </article>
+        </section>
 
-        </div>
-
-    </div>
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
