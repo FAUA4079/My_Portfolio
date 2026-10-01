@@ -10,7 +10,7 @@ export default function Content() {
         <h1>{"Contact"}</h1>
         <p>
           {
-            "Get in touch \u2014 I'm always open to collaborations, research discussions, and new opportunities."
+            "Get in touch — I'm always open to collaborations, research discussions, and new opportunities."
           }
         </p>
       </div>

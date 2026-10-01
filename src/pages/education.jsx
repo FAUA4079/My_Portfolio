@@ -4,7 +4,7 @@ export default function Content() {
   return (
     <Page
       title="Education"
-      description="Fuad Hasan\u2019s academic background and qualifications."
+      description="Fuad Hasan’s academic background and qualifications."
     >
       <div className="page-header">
         <h1>{"Education"}</h1>
@@ -28,7 +28,7 @@ export default function Content() {
           </p>
           <p style={{ marginBottom: "6px" }}>
             <strong style={{ color: "var(--green)" }}>{"Period:"}</strong>
-            {" 2024 \u2014 Present"}
+            {" 2024 — Present"}
           </p>
           <p style={{ marginTop: "10px" }}>
             {
@@ -55,7 +55,7 @@ export default function Content() {
           </p>
           <p style={{ marginBottom: "6px" }}>
             <strong style={{ color: "var(--green)" }}>{"Period:"}</strong>
-            {" 2021 \u2014 2023"}
+            {" 2021 — 2023"}
           </p>
           <p style={{ marginTop: "10px" }}>
             {"\n                    Majored in "}

@@ -6,7 +6,7 @@ export default function Content() {
       title="Page not found"
       description="This portfolio page could not be found."
     >
-      <h1>{"404 \u2014 Page not found"}</h1>
+      <h1>{"404 — Page not found"}</h1>
 
       <p
         style={{

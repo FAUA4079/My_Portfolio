@@ -20,6 +20,18 @@ export default function Modal({ title, onClose, children }) {
       className="portfolio-dialog"
       ref={ref}
       aria-labelledby="dialog-title"
+      onKeyDown={(e) => {
+        if (e.key !== 'Tab') return;
+        const items = Array.from(e.currentTarget.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex="0"]'
+        ));
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first?.focus();
+        }
+      }}
       onCancel={(e) => {
         e.preventDefault();
         onClose();

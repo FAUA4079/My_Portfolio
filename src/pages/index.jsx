@@ -9,21 +9,21 @@ export default function Content() {
       <section className="hero">
         <div className="ascii-art" aria-hidden="true">
           {
-            "\n  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2588\u2588\u2557   \u2588\u2588\u2551 \u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2588\u2588\u2588\u2557     \u2588\u2588\u2557  \u2588\u2588\u2557 \u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2557   \u2588\u2588\u2557\n  \u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2588\u2588\u2551   \u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557    \u2588\u2588\u2551  \u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2557  \u2588\u2588\u2551\n  \u2588\u2588\u2588\u2588\u2588\u2557  \u2588\u2588\u2551   \u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551    \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2554\u2588\u2588\u2557 \u2588\u2588\u2551\n  \u2588\u2588\u2554\u2550\u2550\u255d  \u2588\u2588\u2551   \u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551    \u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u255a\u2550\u2550\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2551\u255a\u2588\u2588\u2557\u2588\u2588\u2551\n  \u2588\u2588\u2551     \u255a\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2588\u2588\u2551  \u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d    \u2588\u2588\u2551  \u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551\u2588\u2588\u2551 \u255a\u2588\u2588\u2588\u2588\u2551\n  \u255a\u2550\u255d      \u255a\u2550\u2550\u2550\u2550\u2550\u255d \u255a\u2550\u255d  \u255a\u2550\u255d\u255a\u2550\u2550\u2550\u2550\u2550\u255d     \u255a\u2550\u255d  \u255a\u2550\u255d\u255a\u2550\u255d  \u255a\u2550\u255d\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u255d\u255a\u2550\u255d  \u255a\u2550\u255d\u255a\u2550\u255d  \u255a\u2550\u2550\u2550\u255d\n            "
+            "\n  ███████╗██╗   ██║ █████╗ ██████╗     ██╗  ██╗ █████╗ ███████╗ █████╗ ███╗   ██╗\n  ██╔════╝██║   ██║██╔══██╗██╔══██╗    ██║  ██║██╔══██╗██╔════╝██╔══██╗████╗  ██║\n  █████╗  ██║   ██║███████║██║  ██║    ███████║███████║███████╗███████║██╔██╗ ██║\n  ██╔══╝  ██║   ██║██╔══██║██║  ██║    ██╔══██║██╔══██║╚════██║██╔══██║██║╚██╗██║\n  ██║     ╚██████╔╝██║  ██║██████╔╝    ██║  ██║██║  ██║███████║██║  ██║██║ ╚████║\n  ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝\n            "
           }
         </div>
         <h1>{"Fuad Hasan"}</h1>
         <p className="hero-intro">
           {
-            "Cyber Security Engineering undergraduate \u00b7 Web security enthusiast"
+            "Cyber Security Engineering undergraduate · Web security enthusiast"
           }
         </p>
-        <h3
+        <p
           className="hero-motto"
           data-text="Differences give birth to new things"
         >
           {"Differences give birth to new things"}
-        </h3>
+        </p>
         <div className="btn-group">
           <a href={asset("/about.html")} className="btn">
             {"[ About ]"}
@@ -68,7 +68,7 @@ export default function Content() {
             {"[+] Fetching recent activity logs..."}
           </p>
           <p style={{ marginBottom: "0.5rem" }}>
-            <span style={{ color: "#555" }}>{"[SYS]"}</span>
+            <span style={{ color: "var(--text-dim)" }}>{"[SYS] "}</span>
             <span style={{ color: "var(--primary-color, #9fef00)" }}>
               {"Rank Up:"}
             </span>
@@ -77,23 +77,23 @@ export default function Content() {
             }
           </p>
           <p style={{ marginBottom: "0.5rem" }}>
-            <span style={{ color: "#555" }}>{"[SYS]"}</span>
+            <span style={{ color: "var(--text-dim)" }}>{"[SYS] "}</span>
             <span style={{ color: "var(--green, #9fef00)" }}>
               {"Build Init:"}
             </span>
             {
-              " LogRisk Analyzer \u2014 Automated GRC log scanning tool (Python)"
+              " LogRisk Analyzer — Automated GRC log scanning tool (Python)"
             }
           </p>
           <p style={{ marginBottom: "0.5rem" }}>
-            <span style={{ color: "#555" }}>{"[SYS]"}</span>
+            <span style={{ color: "var(--text-dim)" }}>{"[SYS] "}</span>
             <span style={{ color: "var(--green, #9fef00)" }}>
               {"Cert Acquired:"}
             </span>
             {" Certified Cybersecurity Foundations - CORD on Hackviser"}
           </p>
           <p style={{ marginBottom: "1.5rem" }}>
-            <span style={{ color: "#555" }}>{"[SYS]"}</span>
+            <span style={{ color: "var(--text-dim)" }}>{"[SYS] "}</span>
             <span style={{ color: "var(--green, #9fef00)" }}>
               {"Process Started:"}
             </span>
@@ -107,7 +107,7 @@ export default function Content() {
                 color: "var(--green, #9fef00)",
               }}
             >
-              {"\u2588"}
+              {"█"}
             </span>
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function Content() {
           <span className="stat-label">{"Certifications"}</span>
         </div>
         <div className="stat-card animate-fade-up delay-4">
-          <span className="stat-number">{"\u221e"}</span>
+          <span className="stat-number">{"∞"}</span>
           <span className="stat-label">{"Coffee Consumed"}</span>
         </div>
       </div>
@@ -149,7 +149,7 @@ export default function Content() {
               "Explore my open-source tools, security utilities, and web applications built with modern tech stacks."
             }
           </p>
-          <span className="card-link">{"Browse Projects \u2192"}</span>
+          <span className="card-link">{"Browse Projects →"}</span>
         </a>
         <a
           href={asset("/achievements.html")}
@@ -162,7 +162,7 @@ export default function Content() {
               "View my professional certifications in cybersecurity and information security from leading organizations."
             }
           </p>
-          <span className="card-link">{"View Achievements \u2192"}</span>
+          <span className="card-link">{"View Achievements →"}</span>
         </a>
         <a
           href={asset("/contact.html")}
@@ -175,7 +175,7 @@ export default function Content() {
               "Interested in collaborating or have a security concern? Let's connect and discuss your next project."
             }
           </p>
-          <span className="card-link">{"Get in Touch \u2192"}</span>
+          <span className="card-link">{"Get in Touch →"}</span>
         </a>
       </div>
       <hr className="section-divider" />
@@ -183,7 +183,7 @@ export default function Content() {
       <div className="quote-block">
         <p>
           {
-            "The only secure system is the one that is powered off. \u2014 Gene Spafford"
+            "The only secure system is the one that is powered off. — Gene Spafford"
           }
         </p>
       </div>
