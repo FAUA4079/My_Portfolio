@@ -5,7 +5,7 @@
     ============================================================ */
 
 /* --- Import Google Font (Fira Code) --- */
-
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
 /* --- CSS Variables (Easy Theming) --- */
 :root {
@@ -2008,7 +2008,7 @@ a:hover {
     transform: scale(0.92) translateY(10px);
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .ctf-modal-content::before {
@@ -2370,37 +2370,4 @@ a:hover {
     .experience-card::before { left: -26px; top: 26px; }
     .experience-card-header { flex-wrap: wrap; gap: 10px; }
     .experience-meta { flex-direction: column; gap: 5px; }
-}
-
-
-/* Shared accessibility and progressive enhancement. */
-.skip-link { position: fixed; top: -100px; left: 12px; z-index: 4000; background: var(--green); color: #0a0a0a; padding: 10px 16px; }
-.skip-link:focus { top: 10px; }
-:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
-main:focus { outline: none; }
-[hidden] { display: none !important; }
-.js-only, .tab-nav, .filter-bar, .pagination { display: none; }
-.enhanced .js-only { display: inline-block; }
-.enhanced .tab-nav, .enhanced .filter-bar, .enhanced .pagination { display: flex; }
-html:not(.enhanced) .tab-content { display: block; }
-html:not(.enhanced) #tab-defensive, html:not(.enhanced) #tab-offensive { display: none; }
-.table-scroll { overflow-x: auto; max-width: 100%; }
-body.dialog-open { overflow: hidden; }
-dialog.modal-overlay, dialog.ctf-modal-overlay { display: none; margin: auto; padding: 20px; border: 0; color: var(--text); width: 100%; max-width: 760px; max-height: 100dvh; background: transparent; opacity: 1; pointer-events: auto; overflow-y: auto; }
-dialog[open].modal-overlay, dialog[open].ctf-modal-overlay { display: block; }
-dialog::backdrop { background: rgba(0,0,0,.88); }
-dialog .modal-content, dialog .ctf-modal-content { margin: auto; max-height: calc(100dvh - 40px); overflow-x: hidden; overflow-y: auto; transform: none; }
-dialog .ctf-modal-title { padding-right: 45px; }
-dialog .ctf-modal-close-btn { transform: none; }
-.ascii-art { max-width: 100%; overflow: hidden; }
-@media (max-width: 768px) {
- html:not(.enhanced) .navbar { position: static; }
- html:not(.enhanced) .navbar-links { display: flex; }
- html:not(.enhanced) .nav-toggle { display: none; }
- dialog .ctf-modal-content { margin: 0; }
- .glitch::before, .glitch::after { animation: none; }
-}
-@media (prefers-reduced-motion: reduce) {
- *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
- .hero h1, .hero .subtitle, .hero .btn-group { opacity: 1; }
 }
