@@ -4,34 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toreno79 | Projects</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
+    <title>Fuad Hasan (Toreno79) | Projects</title>
+<meta name="description" content="Explore LogRisk Analyzer and practical security projects built by Fuad Hasan.">
+<link rel="canonical" href="https://toreno79.vercel.app/projects.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fuad Hasan (Toreno79) | Projects">
+<meta property="og:description" content="Explore LogRisk Analyzer and practical security projects built by Fuad Hasan.">
+<meta property="og:url" content="https://toreno79.vercel.app/projects.html">
+<meta property="og:image" content="https://toreno79.vercel.app/assets/og-card.png">
+<meta property="og:image:alt" content="Fuad Hasan — Toreno79, Web Security and CTF">
+<meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg">
 </head>
 
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
     <!-- ========== NAVIGATION ========== -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <a href="index.html" class="navbar-brand">:> Toreno79_</a>
-            <button class="nav-toggle" onclick="document.querySelector('.navbar-links').classList.toggle('open')"
-                aria-label="Toggle navigation">☰</button>
-            <div class="navbar-links">
-                <a href="index.html">Home</a>
-                <a href="about.html" >About</a>
-                <a href="education.html">Education</a>
-                <a href="achievements.html">Achievements</a>
-                <a href="experience.html">Experience</a>
-                <a href="projects.html" class="active">Projects</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="/index.html" class="navbar-brand">:&gt; Toreno79_</a>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="navbarLinks" aria-expanded="false">☰</button>
+    <div class="navbar-links" id="navbarLinks"><a href="/index.html">Home</a>
+<a href="/about.html">About</a>
+<a href="/education.html">Education</a>
+<a href="/achievements.html">Achievements</a>
+<a href="/experience.html">Experience</a>
+<a href="/projects.html" class="active" aria-current="page">Projects</a>
+<a href="/blog.html">Blog</a>
+<a href="/contact.html">Contact</a></div>
+  </div>
+</nav>
+
 
     <!-- ========== MAIN CONTENT ========== -->
-    <div class="main-wrapper">
+    <main id="main-content" tabindex="-1" class="main-wrapper">
 
         <div class="page-header">
             <h1>Projects</h1>
@@ -41,13 +52,13 @@
 
 <!-- ===== TAB NAVIGATION ===== -->
         <div class="tab-nav">
-            <button class="tab-btn active" onclick="switchTab('all', this)">
+            <button class="tab-btn active" data-tab="all">
                 All
             </button>
-            <button class="tab-btn" onclick="switchTab('defensive', this)">
+            <button class="tab-btn" data-tab="defensive">
                 Defensive
             </button>
-            <button class="tab-btn" onclick="switchTab('offensive', this)">
+            <button class="tab-btn" data-tab="offensive">
                 Offensive
             </button>
         </div>
@@ -56,19 +67,19 @@
         <!-- TAB CONTAINERS (Dynamically populated via JavaScript)         -->
         <!-- ============================================================ -->
         <div id="tab-all" class="tab-content active">
-            <div class="card-grid" id="grid-all"></div>
+            <div class="card-grid" id="grid-all"><article class="card"><h3>LogRisk Analyzer</h3><p>Build a Python-based security log analyzer for a university project to inspect Linux and Windows logs and identify potentially suspicious events.</p><div class="card-tech"><span>Python</span><span>Log</span><span>Report</span><span>GRC</span><span>JSON</span></div><a href="https://github.com/FAUA4079/LogRisk" target="_blank" rel="noopener noreferrer">View on GitHub →</a> <button class="btn-link-style js-only" data-project="1">Details →</button></article></div>
         </div>
         <div id="tab-defensive" class="tab-content">
-            <div class="card-grid" id="grid-defensive"></div>
+            <div class="card-grid" id="grid-defensive"><article class="card"><h3>LogRisk Analyzer</h3><p>Build a Python-based security log analyzer for a university project to inspect Linux and Windows logs and identify potentially suspicious events.</p><div class="card-tech"><span>Python</span><span>Log</span><span>Report</span><span>GRC</span><span>JSON</span></div><a href="https://github.com/FAUA4079/LogRisk" target="_blank" rel="noopener noreferrer">View on GitHub →</a> <button class="btn-link-style js-only" data-project="1">Details →</button></article></div>
         </div>
         <div id="tab-offensive" class="tab-content">
-            <div class="card-grid" id="grid-offensive"></div>
+            <div class="card-grid" id="grid-offensive"><p>No projects in this category yet.</p></div>
         </div>
 
-    </div>
+    </main>
 
     <!-- ===== PROJECT MODAL ===== -->
-    <div class="modal-overlay" id="projectModal">
+    <dialog class="modal-overlay" id="projectModal" aria-labelledby="projectModalTitle">
         <div class="modal-content">
             <h3 class="modal-title" id="projectModalTitle">Project Title</h3>
             <div class="modal-details" id="projectModalDetails">
@@ -88,217 +99,19 @@
             <div class="card-tech" id="projectModalTech" style="margin-bottom: 16px;"></div>
 <div class="modal-actions-block">
                 <a href="#" id="projectModalLink" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-                <button class="modal-close" onclick="closeProjectModal()">Close</button>
+                <button class="modal-close" data-close-modal>Close</button>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <!-- ===== FOOTER ===== -->
-<footer class="footer">
-        <p>&copy; 2026 Toreno79</p>
-    </footer>
+<footer class="footer"><p>&copy; 2026 Toreno79</p></footer>
 
-    <script>
-        // ===== PROJECTS DATA =====
-        const projects = [
-            {
-                id: 1,
-                title: "LogRisk Analyzer",
-                category: "defensive",
-                tech: ["Python", "Log", "Report", "GRC", "JSON"],
-                link: "https://github.com/FAUA4079/LogRisk",
-                goal: "Build a Python-based security log analyzer for a university project to inspect Linux and Windows logs and identify potentially suspicious events.",
-                problem: "Reviewing logs from multiple systems can make it difficult to prioritize suspicious events and organize evidence for investigation.",
-                solution: "Uses rule-based risk scoring and security control mapping to prioritize findings. Generates timestamped text and JSON reports to support structured security evidence and analysis."
-            }
-        ];
 
-        // ===== RENDER PROJECTS DYNAMICALLY =====
-        function renderProjects() {
-            const grids = {
-                all: document.getElementById('grid-all'),
-                defensive: document.getElementById('grid-defensive'),
-                offensive: document.getElementById('grid-offensive')
-            };
-
-            // Clear all grids
-            Object.values(grids).forEach(g => { if (g) g.innerHTML = ''; });
-
-            // Categorize projects
-            const defensiveProjects = projects.filter(p => p.category === 'defensive');
-            const offensiveProjects = projects.filter(p => p.category === 'offensive');
-
-            // Render "all" tab — all projects
-            projects.forEach((project, i) => {
-                grids.all.appendChild(createProjectCard(project, i + 1));
-            });
-
-            // Render "defensive" tab
-            if (defensiveProjects.length > 0) {
-                defensiveProjects.forEach((project, i) => {
-                    grids.defensive.appendChild(createProjectCard(project, i + 1));
-                });
-            } else {
-                grids.defensive.appendChild(createEmptyCard('No Defensive Projects Yet', 'Stay tuned for defensive security projects coming soon!'));
-            }
-
-            // Render "offensive" tab
-            if (offensiveProjects.length > 0) {
-                offensiveProjects.forEach((project, i) => {
-                    grids.offensive.appendChild(createProjectCard(project, i + 1));
-                });
-            } else {
-                grids.offensive.appendChild(createEmptyCard('No Offensive Projects Yet', 'Currently, there are no offensive security projects available. Stay tuned for future updates!'));
-            }
-        }
-
-function createProjectCard(project, delay) {
-            const card = document.createElement('div');
-            card.className = `card animate-fade-up delay-${Math.min(delay, 5)}`;
-            card.innerHTML = `
-                <h3>${project.title}</h3>
-                <div class="card-tech">
-                    ${project.tech.map(t => `<span>${t}</span>`).join('')}
-                </div>
-                <button class="btn-link-style" onclick="openProjectModal(${project.id})" style="margin-top: 12px;">▶ Details →</button>
-            `;
-            return card;
-        }
-
-        function createEmptyCard(title, message) {
-            const card = document.createElement('div');
-            card.className = 'card animate-fade-up delay-1';
-            card.innerHTML = `
-                <h3>${title}</h3>
-                <p>${message}</p>
-            `;
-            return card;
-        }
-
-        // ===== URL HELPERS =====
-        function setHash(value) {
-            if (value) {
-                history.pushState(null, '', '#' + value);
-            } else {
-                // Restore tab hash
-                const activeTab = document.querySelector('.tab-btn.active');
-                if (activeTab) {
-                    const tabMatch = activeTab.getAttribute('onclick').match(/'([^']+)'/);
-                    if (tabMatch) {
-                        history.pushState(null, '', '#' + tabMatch[1]);
-                        return;
-                    }
-                }
-                history.pushState(null, '', window.location.pathname);
-            }
-        }
-
-        // ===== TAB SWITCHING =====
-        function switchTab(tabId, btnElement) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-            btnElement.classList.add('active');
-            document.getElementById('tab-' + tabId).classList.add('active');
-
-            // Update URL hash
-            setHash(tabId);
-        }
-
-        // Initialize tab from URL hash
-        function initFromUrl() {
-            const hash = window.location.hash.slice(1);
-            if (hash) {
-                // Check if hash matches a project modal
-                if (hash.startsWith('project-')) {
-                    const projectId = parseInt(hash.split('-')[1]);
-                    const project = projects.find(p => p.id === projectId);
-                    if (project) {
-                        setTimeout(() => openProjectModal(projectId), 100);
-                        return;
-                    }
-                }
-                // Check if hash matches a tab
-                const tabBtn = document.querySelector(`.tab-btn[onclick*="'${hash}'"]`);
-                if (tabBtn) {
-                    switchTab(hash, tabBtn);
-                    return;
-                }
-            }
-        }
-
-        // ===== PROJECT MODAL =====
-        function openProjectModal(id) {
-            const project = projects.find(p => p.id === id);
-            if (!project) return;
-
-            document.getElementById('projectModalTitle').innerText = project.title;
-            document.getElementById('modalGoal').innerText = project.goal;
-            document.getElementById('modalProblem').innerText = project.problem;
-            document.getElementById('modalSolution').innerText = project.solution;
-            document.getElementById('projectModalLink').href = project.link;
-
-            const techContainer = document.getElementById('projectModalTech');
-            techContainer.innerHTML = project.tech.map(t => `<span>${t}</span>`).join('');
-
-            document.getElementById('projectModal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-
-            // Set URL hash
-            setHash('project-' + id);
-        }
-
-        function closeProjectModal() {
-            document.getElementById('projectModal').classList.remove('open');
-            document.body.style.overflow = 'auto';
-
-            // Restore tab hash in URL
-            const activeTab = document.querySelector('.tab-btn.active');
-            if (activeTab) {
-                const tabMatch = activeTab.getAttribute('onclick').match(/'([^']+)'/);
-                if (tabMatch) setHash(tabMatch[1]);
-                else setHash(null);
-            } else {
-                setHash(null);
-            }
-        }
-
-        // Close modal on background click
-        document.getElementById('projectModal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('projectModal')) {
-                closeProjectModal();
-            }
-        });
-
-        // Close modal with Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && document.getElementById('projectModal').classList.contains('open')) {
-                closeProjectModal();
-            }
-        });
-
-        // Handle browser back/forward
-        window.addEventListener('popstate', function() {
-            // Close any open modal
-            if (document.getElementById('projectModal').classList.contains('open')) {
-                document.getElementById('projectModal').classList.remove('open');
-                document.body.style.overflow = 'auto';
-            }
-            // Re-init from URL
-            initFromUrl();
-        });
-
-        // Close mobile nav when a link is clicked
-        document.querySelectorAll('.navbar-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.navbar-links').classList.remove('open');
-            });
-        });
-
-        // Render projects and initialize from URL
-        renderProjects();
-        initFromUrl();
-    </script>
+    
+<script src="/assets/js/project-data.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
 </body>
 
 </html>
+
