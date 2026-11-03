@@ -7,9 +7,46 @@
     <title>Toreno79 | Experience</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
+    <style>
+        /* Grouped roles inside one company card */
+        .role-history {
+            margin: 22px 0;
+            padding-left: 18px;
+            border-left: 2px solid var(--green, #9fef00);
+        }
+        .role-history-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .role-history-item:last-child {
+            margin-bottom: 0;
+        }
+        .role-history-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 7px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--green, #9fef00);
+        }
+        .role-history-title {
+            font-weight: 700;
+            margin: 0 0 4px;
+            font-size: 1.05rem;
+        }
+        .role-history-date {
+            opacity: .75;
+            font-size: .91rem;
+            margin: 0 0 10px;
+        }
+        .role-history .experience-responsibilities {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body>
-
     <!-- ========== NAVIGATION ========== -->
     <nav class="navbar">
         <div class="navbar-inner">
@@ -32,7 +69,6 @@
 
     <!-- ========== MAIN CONTENT ========== -->
     <main class="main-wrapper">
-
         <div class="page-header">
             <h1>Experience</h1>
             <p>Professional journey in cybersecurity and software development.</p>
@@ -41,61 +77,46 @@
 
         <section class="experience-timeline" aria-label="Experience timeline">
 
-            <!-- CIA: TEAM LEAD (CURRENT) -->
-            <article class="experience-card" aria-labelledby="cia-lead-role">
+            <!-- ONE CIA CARD WITH TWO GROUPED ROLES -->
+            <article class="experience-card" aria-labelledby="cia-company">
                 <header class="experience-card-header">
                     <div>
-                        <h2 id="cia-lead-role" class="experience-role">Team Lead</h2>
-                        <p class="experience-organization">Cyber Invasion Army (CIA)</p>
+                        <h2 id="cia-company" class="experience-role">Cyber Invasion Army (CIA)</h2>
+                        <p class="experience-organization">CTF Team</p>
                     </div>
                     <span class="experience-status">Current</span>
                 </header>
 
-                <ul class="experience-meta" aria-label="Position details">
+                <ul class="experience-meta" aria-label="Organization details">
                     <li>Part-time</li>
-                    <li><time datetime="2026-11">Nov 2026</time> – Present</li>
+                    <li><time datetime="2026-09">Sep 2026</time> – Present</li>
                     <li>Bangladesh · Hybrid</li>
                 </ul>
 
-                <ul class="experience-responsibilities">
-                    <li>Lead the Cyber Invasion Army CTF team and coordinate its participation in cybersecurity competitions.</li>
-                    <li>Support team collaboration, challenge-solving, and knowledge sharing across CTF categories.</li>
-                    <li>Continue contributing as a CTF player with a focus on web exploitation.</li>
-                </ul>
+                <div class="role-history" aria-label="Roles at Cyber Invasion Army">
+                    <section class="role-history-item" aria-labelledby="cia-lead-role">
+                        <h3 id="cia-lead-role" class="role-history-title">Team Lead</h3>
+                        <p class="role-history-date"><time datetime="2026-11">Nov 2026</time> – Present</p>
+                        <ul class="experience-responsibilities">
+                            <li>Lead the team and coordinate participation in Capture The Flag competitions.</li>
+                            <li>Support collaboration, challenge solving, and knowledge sharing across CTF categories.</li>
+                            <li>Continue contributing to web exploitation challenges.</li>
+                        </ul>
+                    </section>
+
+                    <section class="role-history-item" aria-labelledby="cia-member-role">
+                        <h3 id="cia-member-role" class="role-history-title">Member</h3>
+                        <p class="role-history-date"><time datetime="2026-09">Sep 2026</time> – <time datetime="2026-10">Oct 2026</time></p>
+                        <ul class="experience-responsibilities">
+                            <li>Participated in CTF competitions with a focus on the Web category.</li>
+                        </ul>
+                    </section>
+                </div>
 
                 <ul class="experience-tags" aria-label="Focus areas">
                     <li>Team Leadership</li>
                     <li>CTF</li>
                     <li>Web Security</li>
-                    <li>Collaboration</li>
-                </ul>
-            </article>
-
-            <!-- CIA: PREVIOUS MEMBER ROLE -->
-            <article class="experience-card" aria-labelledby="cia-member-role">
-                <header class="experience-card-header">
-                    <div>
-                        <h2 id="cia-member-role" class="experience-role">Member</h2>
-                        <p class="experience-organization">Cyber Invasion Army (CIA)</p>
-                    </div>
-                </header>
-
-                <ul class="experience-meta" aria-label="Position details">
-                    <li>Part-time</li>
-                    <li>
-                        <time datetime="2026-09">Sep 2026</time> –
-                        <time datetime="2026-10">Oct 2026</time>
-                    </li>
-                    <li>Bangladesh · Hybrid</li>
-                </ul>
-
-                <ul class="experience-responsibilities">
-                    <li>Participated in CTF competitions as a team member, focused on the Web category.</li>
-                </ul>
-
-                <ul class="experience-tags" aria-label="Focus areas">
-                    <li>CTF</li>
-                    <li>Web</li>
                 </ul>
             </article>
 
@@ -110,16 +131,11 @@
 
                 <ul class="experience-meta" aria-label="Position details">
                     <li>Internship</li>
-                    <li>
-                        <time datetime="2025-04">April 2025</time> –
-                        <time datetime="2025-05">May 2025</time>
-                    </li>
+                    <li><time datetime="2025-04">April 2025</time> – <time datetime="2025-05">May 2025</time></li>
                     <li>Remote</li>
                 </ul>
 
-                <p class="experience-summary">
-                    Completed a Python programming internship focused on practical applications and problem-solving.
-                </p>
+                <p class="experience-summary">Completed a Python programming internship focused on practical applications and problem-solving.</p>
 
                 <ul class="experience-responsibilities">
                     <li>Built 5+ Python applications, including a To-Do List with CRUD operations, a Secure Password Generator, a Contact Book with JSON storage, a CLI Calculator, and a Rock-Paper-Scissors game with score tracking.</li>
@@ -134,7 +150,6 @@
                     <li>OOP</li>
                 </ul>
             </article>
-
         </section>
     </main>
 
@@ -150,6 +165,5 @@
             });
         });
     </script>
-
 </body>
 </html>
