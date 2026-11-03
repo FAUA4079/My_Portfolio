@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toreno79 | Experience</title>
+    <title>Toreno79 | Achievements</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
 </head>
@@ -14,15 +14,13 @@
     <nav class="navbar">
         <div class="navbar-inner">
             <a href="index.html" class="navbar-brand">:> Toreno79_</a>
-            <button class="nav-toggle"
-                    onclick="document.querySelector('.navbar-links').classList.toggle('open')"
-                    aria-label="Toggle navigation">☰</button>
+            <button class="nav-toggle" onclick="document.querySelector('.navbar-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
             <div class="navbar-links">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="education.html">Education</a>
-                <a href="achievements.html">Achievements</a>
-                <a href="experience.html" class="active">Experience</a>
+                <a href="achievements.html" class="active">Achievements</a>
+                <a href="experience.html">Experience</a>
                 <a href="projects.html">Projects</a>
                 <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
@@ -31,124 +29,500 @@
     </nav>
 
     <!-- ========== MAIN CONTENT ========== -->
-    <main class="main-wrapper">
+    <div class="main-wrapper">
 
         <div class="page-header">
-            <h1>Experience</h1>
-            <p>Professional journey in cybersecurity and software development.</p>
+            <h1>Achievements</h1>
+            <p>Certifications, learning credentials, CTF competitions, and seminars I've participated in.</p>
         </div>
         <hr class="section-divider">
 
-        <section class="experience-timeline" aria-label="Experience timeline">
+        <!-- ===== TAB NAVIGATION ===== -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('certifications', this)">
+                Credentials
+            </button>
+            <button class="tab-btn" onclick="switchTab('ctfs', this)">
+                CTFs
+            </button>
+            <button class="tab-btn" onclick="switchTab('seminars', this)">
+                Seminars
+            </button>
+        </div>
 
-            <!-- CIA: TEAM LEAD (CURRENT) -->
-            <article class="experience-card" aria-labelledby="cia-lead-role">
-                <header class="experience-card-header">
-                    <div>
-                        <h2 id="cia-lead-role" class="experience-role">Team Lead</h2>
-                        <p class="experience-organization">Cyber Invasion Army (CIA)</p>
-                    </div>
-                    <span class="experience-status">Current</span>
-                </header>
+        <!-- ============================================================ -->
+        <!-- TAB 1: CERTIFICATIONS                                        -->
+        <!-- ============================================================ -->
+        <div id="tab-certifications" class="tab-content active">
+            <p>Certifications, course completions, and digital badges are labeled below.</p>
 
-                <ul class="experience-meta" aria-label="Position details">
-                    <li>Part-time</li>
-                    <li><time datetime="2026-11">Nov 2026</time> – Present</li>
-                    <li>Bangladesh · Hybrid</li>
-                </ul>
+            <!-- Web-RTA -->
+            <div class="ctf-block animate-fade-up delay-5">
+                <div class="ctf-header">
+                    <h3>Certified Web Red Team Analyst - Web-RTA</h3>
+                    <span class="cert-date">July 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Type:</strong> Certification</div>
+                    <div class="ctf-detail-item"><strong>Issuing Organization:</strong> <a href="https://cyberwarfare.live/product/web-red-team-analyst-web-rta/" target="_blank" rel="noopener">Cyberwarfare Labs →</a></div>
+                </div>
+                <div class="ctf-block-footer">
+                    <a href="https://labs.cyberwarfare.live/credential/achievement/6a6a45838aed14e94c92f27c" target="_blank" rel="noopener" class="btn-link-style">
+                        🔗 Verify Credential →
+                    </a>
+                </div>
+            </div>
 
-                <ul class="experience-responsibilities">
-                    <li>Lead the Cyber Invasion Army CTF team and coordinate its participation in cybersecurity competitions.</li>
-                    <li>Support team collaboration, challenge-solving, and knowledge sharing across CTF categories.</li>
-                    <li>Continue contributing as a CTF player with a focus on web exploitation.</li>
-                </ul>
+            <!-- CORD -->
+            <div class="ctf-block animate-fade-up delay-1">
+                <div class="ctf-header">
+                    <h3>Certified Cybersecurity Foundations - CORD</h3>
+                    <span class="cert-date">July 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Type:</strong> Certification</div>
+                    <div class="ctf-detail-item"><strong>Issuing Organization:</strong> <a href="https://app.hackviser.com/certifications/core" target="_blank" rel="noopener">Hackviser →</a></div>
+                </div>
+                <div class="ctf-block-footer">
+                    <a href="https://www.linkedin.com/posts/fuad-hasan-714984301_certified-cybersecurity-foundations-activity-7481009049174495233-mjJg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk" target="_blank" rel="noopener" class="btn-link-style">
+                        🔗 Verify Credential →
+                    </a>
+                </div>
+            </div>
 
-                <ul class="experience-tags" aria-label="Focus areas">
-                    <li>Team Leadership</li>
-                    <li>CTF</li>
-                    <li>Web Security</li>
-                    <li>Collaboration</li>
-                </ul>
-            </article>
+            <!-- CLLMSE -->
+            <div class="ctf-block animate-fade-up delay-2">
+                <div class="ctf-header">
+                    <h3>Certified LLM Security Expert - CLLMSE</h3>
+                    <span class="cert-date">July 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Type:</strong> Certification</div>
+                    <div class="ctf-detail-item"><strong>Issuing Organization:</strong> <a href="https://courses.redteamleaders.com/exams/73c286aa-2944-4f26-82ba-0ca14a05a4b7" target="_blank" rel="noopener">Red Team Leaders →</a></div>
+                </div>
+                <div class="ctf-block-footer">
+                    <a href="https://www.linkedin.com/posts/fuad-hasan-714984301_certified-llm-security-expert-cllmse-activity-7485772987422670849-0yAZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk" target="_blank" rel="noopener" class="btn-link-style">
+                        🔗 Verify Credential →
+                    </a>
+                </div>
+            </div>
 
-            <!-- CIA: PREVIOUS MEMBER ROLE -->
-            <article class="experience-card" aria-labelledby="cia-member-role">
-                <header class="experience-card-header">
-                    <div>
-                        <h2 id="cia-member-role" class="experience-role">Member</h2>
-                        <p class="experience-organization">Cyber Invasion Army (CIA)</p>
-                    </div>
-                </header>
+            <!-- Threat Modeling -->
+            <div class="ctf-block animate-fade-up delay-4">
+                <div class="ctf-header">
+                    <h3>Threat Modeling Security Fundamentals</h3>
+                    <span class="cert-date">April 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Type:</strong> Course completion</div>
+                    <div class="ctf-detail-item"><strong>Issuing Organization:</strong> <a href="https://learn.microsoft.com/en-us/training/paths/tm-threat-modeling-fundamentals/" target="_blank" rel="noopener">Microsoft →</a></div>
+                </div>
+                <div class="ctf-block-footer">
+                    <a href="https://drive.google.com/file/d/1CUtl4g9oZXOWRgfTisLflt9xk1ymZa7W/view?usp=sharing" target="_blank" rel="noopener" class="btn-link-style">
+                        🔗 Verify Credential →
+                    </a>
+                </div>
+            </div>
 
-                <ul class="experience-meta" aria-label="Position details">
-                    <li>Part-time</li>
-                    <li>
-                        <time datetime="2026-09">Sep 2026</time> –
-                        <time datetime="2026-10">Oct 2026</time>
-                    </li>
-                    <li>Bangladesh · Hybrid</li>
-                </ul>
+            <!-- CGRCA -->
+            <div class="ctf-block animate-fade-up delay-3">
+                <div class="ctf-header">
+                    <h3>Certified Governance Risk and Compliance Analyst - CGRCA</h3>
+                    <span class="cert-date">January 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Type:</strong> Certification</div>
+                    <div class="ctf-detail-item"><strong>Issuing Organization:</strong> <a href="https://academy.hackandfix.com/courses-archive/certified-governance-risk-and-compliance-analyst/" target="_blank" rel="noopener">Hack&Fix →</a></div>
+                </div>
+                <div class="ctf-block-footer">
+                    <a href="https://www.linkedin.com/posts/fuad-hasan-714984301_certified-governance-risk-and-compliance-activity-7417451090150883328-XaHH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk" target="_blank" rel="noopener" class="btn-link-style">
+                        🔗 Verify Credential →
+                    </a>
+                </div>
+            </div>
 
-                <ul class="experience-responsibilities">
-                    <li>Participated in CTF competitions as a team member, focused on the Web category.</li>
-                </ul>
+            <!-- IBM SkillsBuild -->
+            <div class="ctf-block animate-fade-up delay-5">
+                <div class="ctf-header">
+                    <h3>Cybersecurity Fundamentals</h3>
+                    <span class="cert-date">2025</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Type:</strong> Digital badge</div>
+                    <div class="ctf-detail-item"><strong>Issuing Organization:</strong> IBM SkillsBuild</div>
+                </div>
+                <div class="ctf-block-footer">
+                    <a href="https://www.credly.com/badges/93381b32-277e-4234-909a-6a6051dd8af3/public_url" target="_blank" rel="noopener noreferrer" class="btn-link-style">🔗 View Badge →</a>
+                </div>
+            </div>
 
-                <ul class="experience-tags" aria-label="Focus areas">
-                    <li>CTF</li>
-                    <li>Web</li>
-                </ul>
-            </article>
+        </div>
 
-            <!-- CODSOFT INTERNSHIP -->
-            <article class="experience-card" aria-labelledby="codsoft-role">
-                <header class="experience-card-header">
-                    <div>
-                        <h2 id="codsoft-role" class="experience-role">Python Programmer</h2>
-                        <p class="experience-organization">CodSoft</p>
-                    </div>
-                </header>
+        <!-- ============================================================ -->
+        <!-- TAB 2: CTFs                                                  -->
+        <!-- ============================================================ -->
+        <div id="tab-ctfs" class="tab-content">
 
-                <ul class="experience-meta" aria-label="Position details">
-                    <li>Internship</li>
-                    <li>
-                        <time datetime="2025-04">April 2025</time> –
-                        <time datetime="2025-05">May 2025</time>
-                    </li>
-                    <li>Remote</li>
-                </ul>
+            <!-- RSTCON CTF 2026 - NEW -->
+            <div class="ctf-block animate-fade-up delay-1">
+                <div class="ctf-header">
+                    <h3>RSTCON CTF 2026</h3>
+                    <span class="ctf-date">October 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Team Name:</strong> Cyber Invasion Army</div>
+                    <div class="ctf-detail-item"><strong>Position:</strong> 10th Place</div>
+                    <div class="ctf-detail-item"><strong>Team Points:</strong> 330</div>
+                </div>
+                <div class="ctf-block-footer">
+                    <button class="btn-link-style" onclick="openCtfModal('ctf-modal-3'); return false;">
+                        ▶ More Details →
+                    </button>
+                </div>
+            </div>
 
-                <p class="experience-summary">
-                    Completed a Python programming internship focused on practical applications and problem-solving.
-                </p>
+            <!-- BCS CTF 2026 -->
+            <div class="ctf-block animate-fade-up delay-1">
+                <div class="ctf-header">
+                    <h3>BCS CTF 2026</h3>
+                    <span class="ctf-date">September 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Team Name:</strong> Cyber Invasion Army</div>
+                    <div class="ctf-detail-item"><strong>Position:</strong> 43 / 391</div>
+                    <div class="ctf-detail-item"><strong>Team Points:</strong> 5513</div>
+                </div>
+                <div class="ctf-block-footer">
+                    <button class="btn-link-style" onclick="openCtfModal('ctf-modal-2'); return false;">
+                        ▶ More Details →
+                    </button>
+                </div>
+            </div>
 
-                <ul class="experience-responsibilities">
-                    <li>Built 5+ Python applications, including a To-Do List with CRUD operations, a Secure Password Generator, a Contact Book with JSON storage, a CLI Calculator, and a Rock-Paper-Scissors game with score tracking.</li>
-                    <li>Used OOP and modular code with error handling and input validation.</li>
-                    <li>Managed projects on GitHub with version control, organized repositories, and documentation.</li>
-                </ul>
+            <!-- BDSec CTF 2026 -->
+            <div class="ctf-block animate-fade-up delay-1">
+                <div class="ctf-header">
+                    <h3>BDSec CTF 2026</h3>
+                    <span class="ctf-date">July 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Team Name:</strong> Z3R0</div>
+                    <div class="ctf-detail-item"><strong>Position:</strong> 471 / 545</div>
+                    <div class="ctf-detail-item"><strong>Team Points:</strong> 50</div>
+                </div>
+                <div class="ctf-block-footer">
+                    <button class="btn-link-style" onclick="openCtfModal('ctf-modal-1'); return false;">
+                        ▶ More Details →
+                    </button>
+                </div>
+            </div>
 
-                <ul class="experience-tags" aria-label="Skills used">
-                    <li>Python</li>
-                    <li>Problem Solving</li>
-                    <li>GitHub</li>
-                    <li>OOP</li>
-                </ul>
-            </article>
+        </div>
 
-        </section>
-    </main>
+        <!-- ============================================================ -->
+        <!-- TAB 3: SEMINARS                                              -->
+        <!-- ============================================================ -->
+        <div id="tab-seminars" class="tab-content">
+
+            <!-- Seminar 1 -->
+            <div class="ctf-block animate-fade-up delay-1">
+                <div class="ctf-header">
+                    <h3>Master Application Security</h3>
+                    <span class="ctf-date">April 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Organizer:</strong> The Team Phoenix</div>
+                </div>
+                <div class="ctf-block-footer">
+                    <a href="https://www.linkedin.com/posts/fuad-hasan-714984301_phenixsummit-webdevelopment-techcommunity-activity-7477355791365210112-7oAh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk" target="_blank" rel="noopener" class="btn-link-style">
+                        🔗 View Certificate →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Seminar 2 -->
+            <div class="ctf-block animate-fade-up delay-2">
+                <div class="ctf-header">
+                    <h3>Threat Modeling for Cloud Security: Protecting Modern Infrastructures</h3>
+                    <span class="ctf-date">May 2025</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Organizer:</strong> EC-Council</div>
+                </div>
+                <div class="ctf-block-footer">
+                    <a href="https://www.linkedin.com/posts/fuad-hasan-714984301_cloudsecurity-threatmodeling-cybersecurity-activity-7331340912641392641-NcgP?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE01YwABru7RhJT1WqviaDZuWtWI4q9BQWk" target="_blank" rel="noopener" class="btn-link-style">
+                        🔗 View Certificate →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- CTF MODALS                                                   -->
+    <!-- ============================================================ -->
+
+    <!-- Modal 1: BDSec CTF 2026 -->
+    <div id="ctf-modal-1" class="ctf-modal-overlay" onclick="closeCtfModal(event, 'ctf-modal-1')">
+        <div class="ctf-modal-content" onclick="event.stopPropagation()">
+            <button class="ctf-modal-close-btn" onclick="closeCtfModal(event, 'ctf-modal-1')">✕</button>
+            <h2 class="ctf-modal-title">BDSec CTF 2026</h2>
+
+            <div class="ctf-modal-summary">
+                <span><strong>Team:</strong> Z3R0</span>
+                <span><strong>Position:</strong> 471 / 545</span>
+                <span><strong>Total Points:</strong> 50</span>
+                <span><strong>Date:</strong> July 2026</span>
+            </div>
+
+            <h3 style="color: var(--green); font-size: 1rem; margin-bottom: 12px;">Team Member Points</h3>
+            <table class="ctf-score-table">
+                <thead>
+                    <tr>
+                        <th>Member Name</th>
+                        <th>Challenges Solved</th>
+                        <th>Individual Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>toreno79 [me]</td>
+                        <td>1</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>pari_na</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>celine</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal 2: BCS CTF 2026 -->
+    <div id="ctf-modal-2" class="ctf-modal-overlay" onclick="closeCtfModal(event, 'ctf-modal-2')">
+        <div class="ctf-modal-content" onclick="event.stopPropagation()">
+            <button class="ctf-modal-close-btn" onclick="closeCtfModal(event, 'ctf-modal-2')" aria-label="Close details">✕</button>
+            <h2 class="ctf-modal-title">BCS CTF 2026</h2>
+
+            <div class="ctf-modal-summary">
+                <span><strong>Team:</strong> Cyber Invasion Army</span>
+                <span><strong>Position:</strong> 43 / 391</span>
+                <span><strong>Total Points:</strong> 5513</span>
+                <span><strong>Date:</strong> September 2026</span>
+            </div>
+
+            <h3 style="color: var(--green); font-size: 1rem; margin-bottom: 12px;">Team Member Points</h3>
+            <table class="ctf-score-table">
+                <thead>
+                    <tr>
+                        <th>Member Name</th>
+                        <th>Challenges Solved</th>
+                        <th>Individual Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>muzaninexe (Captain)</td>
+                        <td>4</td>
+                        <td>992</td>
+                    </tr>
+                    <tr>
+                        <td>t0r3n079 [me]</td>
+                        <td>16</td>
+                        <td>2971</td>
+                    </tr>
+                    <tr>
+                        <td>netcracker</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>ultrawot</td>
+                        <td>11</td>
+                        <td>1550</td>
+                    </tr>
+                    <tr>
+                        <td>maisha_rahman</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal 3: RSTCON CTF 2026 - NEW -->
+    <div id="ctf-modal-3" class="ctf-modal-overlay" onclick="closeCtfModal(event, 'ctf-modal-3')">
+        <div class="ctf-modal-content" onclick="event.stopPropagation()">
+            <button class="ctf-modal-close-btn" onclick="closeCtfModal(event, 'ctf-modal-3')" aria-label="Close details">✕</button>
+            <h2 class="ctf-modal-title">RSTCON CTF 2026</h2>
+
+            <div class="ctf-modal-summary">
+                <span><strong>Team:</strong> Cyber Invasion Army</span>
+                <span><strong>Position:</strong> 10th Place</span>
+                <span><strong>Total Points:</strong> 330</span>
+                <span><strong>Date:</strong> October 2026</span>
+            </div>
+
+            <h3 style="color: var(--green); font-size: 1rem; margin-bottom: 12px;">Team Member Points</h3>
+            <table class="ctf-score-table">
+                <thead>
+                    <tr>
+                        <th>Member Name</th>
+                        <th>Individual Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Iram_Trace47 (Captain)</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>Carnage_</td>
+                        <td>160</td>
+                    </tr>
+                    <tr>
+                        <td>joyboy</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>T0r3n079 [me]</td>
+                        <td>80</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="ctf-block-footer">
+                <a href="https://ctf.rstcon.org/teams/261"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn-link-style">
+                    🔗 View Official Scoreboard →
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
-        <p>&copy; 2026 Toreno79</p>
+        <p>© 2026 Toreno79</p>
     </footer>
 
     <script>
+        // ===== URL HELPERS =====
+        function getHashParam(param) {
+            const hash = window.location.hash.slice(1);
+            if (hash.startsWith(param + '=')) return hash.split('=')[1];
+            if (hash === param) return true;
+            return null;
+        }
+
+        function setHash(value) {
+            if (value) {
+                history.pushState(null, '', '#' + value);
+            } else {
+                history.pushState(null, '', window.location.pathname);
+            }
+        }
+
+        // ===== TAB SWITCHING with URL =====
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            btnElement.classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            setHash(tabId);
+        }
+
+        // Initialize active tab from URL hash
+        function initTabsFromUrl() {
+            const hash = window.location.hash.slice(1);
+            if (hash) {
+                const tabBtn = document.querySelector(`.tab-btn[onclick*="'${hash}'"]`);
+                if (tabBtn) {
+                    switchTab(hash, tabBtn);
+                    return;
+                }
+
+                if (hash.startsWith('ctf-')) {
+                    const modal = document.getElementById('ctf-modal-' + hash.split('-')[1]);
+                    if (modal) {
+                        setTimeout(() => openCtfModal('ctf-modal-' + hash.split('-')[1]), 100);
+                        return;
+                    }
+                }
+            }
+        }
+
+        // ===== CTF MODALS =====
+        function openCtfModal(modalId) {
+            document.getElementById(modalId).classList.add('open');
+            document.body.style.overflow = 'hidden';
+
+            const modalNum = modalId.split('-')[2];
+            setHash('ctf-' + modalNum);
+        }
+
+        function closeCtfModal(event, modalId) {
+            if (event && event.target !== event.currentTarget) return;
+
+            document.getElementById(modalId).classList.remove('open');
+            document.body.style.overflow = '';
+
+            const hash = window.location.hash.slice(1);
+            if (hash && hash.startsWith('ctf-')) {
+                const activeTab = document.querySelector('.tab-btn.active');
+
+                if (activeTab) {
+                    const tabMatch = activeTab.getAttribute('onclick').match(/'([^']+)'/);
+                    if (tabMatch) setHash(tabMatch[1]);
+                    else setHash(null);
+                } else {
+                    setHash(null);
+                }
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.ctf-modal-overlay.open').forEach(modal => {
+                    closeCtfModal(null, modal.id);
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Handle back/forward browser navigation
+        window.addEventListener('popstate', function() {
+            document.querySelectorAll('.ctf-modal-overlay.open').forEach(modal => {
+                modal.classList.remove('open');
+            });
+
+            document.body.style.overflow = '';
+            initTabsFromUrl();
+        });
+
+        // Close mobile nav when a link is clicked
         document.querySelectorAll('.navbar-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.navbar-links').classList.remove('open');
             });
         });
+
+        // Initialize from URL on load
+        initTabsFromUrl();
     </script>
 
 </body>
