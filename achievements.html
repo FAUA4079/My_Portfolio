@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,7 @@
         <hr class="section-divider">
 
         <!-- ===== TAB NAVIGATION ===== -->
-<div class="tab-nav">
+        <div class="tab-nav">
             <button class="tab-btn active" onclick="switchTab('certifications', this)">
                 Credentials
             </button>
@@ -72,7 +73,7 @@
                 </div>
             </div>
 
-<!-- CORD -->
+            <!-- CORD -->
             <div class="ctf-block animate-fade-up delay-1">
                 <div class="ctf-header">
                     <h3>Certified Cybersecurity Foundations - CORD</h3>
@@ -162,6 +163,23 @@
         <!-- ============================================================ -->
         <div id="tab-ctfs" class="tab-content">
 
+            <!-- RSTCON CTF 2026 - NEW -->
+            <div class="ctf-block animate-fade-up delay-1">
+                <div class="ctf-header">
+                    <h3>RSTCON CTF 2026</h3>
+                    <span class="ctf-date">October 2026</span>
+                </div>
+                <div class="ctf-details">
+                    <div class="ctf-detail-item"><strong>Team Name:</strong> Cyber Invasion Army</div>
+                    <div class="ctf-detail-item"><strong>Position:</strong> 10th Place</div>
+                    <div class="ctf-detail-item"><strong>Team Points:</strong> 330</div>
+                </div>
+                <div class="ctf-block-footer">
+                    <button class="btn-link-style" onclick="openCtfModal('ctf-modal-3'); return false;">
+                        ▶ More Details →
+                    </button>
+                </div>
+            </div>
 
             <!-- BCS CTF 2026 -->
             <div class="ctf-block animate-fade-up delay-1">
@@ -181,7 +199,7 @@
                 </div>
             </div>
 
-<!-- CTF Block 1 -->
+            <!-- BDSec CTF 2026 -->
             <div class="ctf-block animate-fade-up delay-1">
                 <div class="ctf-header">
                     <h3>BDSec CTF 2026</h3>
@@ -206,7 +224,7 @@
         <!-- ============================================================ -->
         <div id="tab-seminars" class="tab-content">
 
-<!-- Seminar 1 -->
+            <!-- Seminar 1 -->
             <div class="ctf-block animate-fade-up delay-1">
                 <div class="ctf-header">
                     <h3>Master Application Security</h3>
@@ -246,7 +264,7 @@
     <!-- CTF MODALS                                                   -->
     <!-- ============================================================ -->
 
-    <!-- Modal 1 -->
+    <!-- Modal 1: BDSec CTF 2026 -->
     <div id="ctf-modal-1" class="ctf-modal-overlay" onclick="closeCtfModal(event, 'ctf-modal-1')">
         <div class="ctf-modal-content" onclick="event.stopPropagation()">
             <button class="ctf-modal-close-btn" onclick="closeCtfModal(event, 'ctf-modal-1')">✕</button>
@@ -289,7 +307,7 @@
         </div>
     </div>
 
-    <!-- BCS CTF 2026 Modal -->
+    <!-- Modal 2: BCS CTF 2026 -->
     <div id="ctf-modal-2" class="ctf-modal-overlay" onclick="closeCtfModal(event, 'ctf-modal-2')">
         <div class="ctf-modal-content" onclick="event.stopPropagation()">
             <button class="ctf-modal-close-btn" onclick="closeCtfModal(event, 'ctf-modal-2')" aria-label="Close details">✕</button>
@@ -342,15 +360,67 @@
         </div>
     </div>
 
+    <!-- Modal 3: RSTCON CTF 2026 - NEW -->
+    <div id="ctf-modal-3" class="ctf-modal-overlay" onclick="closeCtfModal(event, 'ctf-modal-3')">
+        <div class="ctf-modal-content" onclick="event.stopPropagation()">
+            <button class="ctf-modal-close-btn" onclick="closeCtfModal(event, 'ctf-modal-3')" aria-label="Close details">✕</button>
+            <h2 class="ctf-modal-title">RSTCON CTF 2026</h2>
+
+            <div class="ctf-modal-summary">
+                <span><strong>Team:</strong> Cyber Invasion Army</span>
+                <span><strong>Position:</strong> 10th Place</span>
+                <span><strong>Total Points:</strong> 330</span>
+                <span><strong>Date:</strong> October 2026</span>
+            </div>
+
+            <h3 style="color: var(--green); font-size: 1rem; margin-bottom: 12px;">Team Member Points</h3>
+            <table class="ctf-score-table">
+                <thead>
+                    <tr>
+                        <th>Member Name</th>
+                        <th>Individual Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Iram_Trace47 (Captain)</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>Carnage_</td>
+                        <td>160</td>
+                    </tr>
+                    <tr>
+                        <td>joyboy</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>T0r3n079 [me]</td>
+                        <td>80</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="ctf-block-footer">
+                <a href="https://ctf.rstcon.org/teams/261"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn-link-style">
+                    🔗 View Official Scoreboard →
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== FOOTER ===== -->
-<footer class="footer">
-        <p>&copy; 2026 Toreno79</p>
+    <footer class="footer">
+        <p>© 2026 Toreno79</p>
     </footer>
 
     <script>
         // ===== URL HELPERS =====
         function getHashParam(param) {
-            const hash = window.location.hash.slice(1); // remove '#'
+            const hash = window.location.hash.slice(1);
             if (hash.startsWith(param + '=')) return hash.split('=')[1];
             if (hash === param) return true;
             return null;
@@ -372,21 +442,19 @@
             btnElement.classList.add('active');
             document.getElementById('tab-' + tabId).classList.add('active');
 
-            // Update URL hash with tab ID
             setHash(tabId);
         }
 
-        // Initialize active tab from URL hash on page load
+        // Initialize active tab from URL hash
         function initTabsFromUrl() {
             const hash = window.location.hash.slice(1);
             if (hash) {
-                // Check if hash matches a tab
                 const tabBtn = document.querySelector(`.tab-btn[onclick*="'${hash}'"]`);
                 if (tabBtn) {
                     switchTab(hash, tabBtn);
                     return;
                 }
-                // Check if hash matches a modal
+
                 if (hash.startsWith('ctf-')) {
                     const modal = document.getElementById('ctf-modal-' + hash.split('-')[1]);
                     if (modal) {
@@ -401,20 +469,21 @@
         function openCtfModal(modalId) {
             document.getElementById(modalId).classList.add('open');
             document.body.style.overflow = 'hidden';
-            // Set hash for modal
+
             const modalNum = modalId.split('-')[2];
             setHash('ctf-' + modalNum);
         }
 
         function closeCtfModal(event, modalId) {
             if (event && event.target !== event.currentTarget) return;
+
             document.getElementById(modalId).classList.remove('open');
             document.body.style.overflow = '';
-            // Clear hash
+
             const hash = window.location.hash.slice(1);
             if (hash && hash.startsWith('ctf-')) {
-                // Restore tab hash or clear
                 const activeTab = document.querySelector('.tab-btn.active');
+
                 if (activeTab) {
                     const tabMatch = activeTab.getAttribute('onclick').match(/'([^']+)'/);
                     if (tabMatch) setHash(tabMatch[1]);
@@ -435,14 +504,13 @@
             }
         });
 
-        // Handle back/forward browser navigation for hash changes
+        // Handle back/forward browser navigation
         window.addEventListener('popstate', function() {
-            // Close any open modals
             document.querySelectorAll('.ctf-modal-overlay.open').forEach(modal => {
                 modal.classList.remove('open');
             });
+
             document.body.style.overflow = '';
-            // Re-init from URL
             initTabsFromUrl();
         });
 
